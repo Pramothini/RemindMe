@@ -6,6 +6,7 @@ import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -50,13 +51,22 @@ public class HomePageListFragment extends ListFragment {
             TextView idTextView = (TextView)convertView.findViewById(R.id.listName);
 
           // configure the view for this Student
-                List l = getItem(position);
+                final List l = getItem(position);
 
                 idTextView.setText(l.getListName() + "  ");
             if(position != 0 ){
                 RelativeLayout rl = (RelativeLayout)convertView.findViewById(R.id.searchLayout);
                 rl.setVisibility(View.GONE);
             }
+
+            RelativeLayout rlList = (RelativeLayout)convertView.findViewById(R.id.listRL);
+            rlList.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent i = new Intent(getActivity(), ListItemActivity.class);
+//                    i.putExtra("ListName", l.getListName()+"");
+                    startActivity(i);
+                }
+            });
 
 
             return convertView;
