@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 
 /**
- * Used to create a student fragment for each student
+ * Used to create a list fragment for each list
  */
 public class HomePageListActivity extends SingleFragmentActivity {
 

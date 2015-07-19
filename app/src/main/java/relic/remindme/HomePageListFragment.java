@@ -15,7 +15,9 @@ import java.util.ArrayList;
 import adapter.ListLab;
 import entities.List;
 
-
+/**
+ * Populates the list details of all the lists that the user had created in the home page
+ */
 public class HomePageListFragment extends ListFragment {
     private ArrayList<List> mList;
 
@@ -30,11 +32,11 @@ public class HomePageListFragment extends ListFragment {
 
 
 
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        ((CrimeAdapter)getListAdapter()).notifyDataSetChanged();
     }
+
 
     private class ListsAdapter extends ArrayAdapter<List> {
         public ListsAdapter(ArrayList<List> students) {
@@ -56,12 +58,18 @@ public class HomePageListFragment extends ListFragment {
                 final List l = getItem(position);
 
                 idTextView.setText(l.getListName() + "  ");
+            /**
+             * To make the search visible only before the first item of the list
+             */
             if(position != 0 ){
                 RelativeLayout rl = (RelativeLayout)convertView.findViewById(R.id.searchLayout);
                 if(rl.getVisibility() == View.VISIBLE)
                      rl.setVisibility(View.GONE);
             }
 
+            /**
+             * To make the add new list button visible only after the last list item
+             */
             if(position == (mList.size()-1)) {
                 Button donebtn = (Button) convertView.findViewById(R.id.addNewListBtn);
                 donebtn.setVisibility(View.VISIBLE);
