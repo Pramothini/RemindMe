@@ -1,9 +1,12 @@
 package relic.remindme;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 
 public class NotificationSettings extends ActionBarActivity {
@@ -12,6 +15,47 @@ public class NotificationSettings extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification_settings);
+
+        Button setDate = (Button) findViewById(R.id.button3);
+        Button setTime = (Button) findViewById(R.id.button4);
+        Button setLocation = (Button) findViewById(R.id.button5);
+        Button RecordAlert = (Button) findViewById(R.id.button6);
+
+        setDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(NotificationSettings.this, SetTime.class));
+            }
+        });
+
+        setDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(NotificationSettings.this, SetLocation.class));
+            }
+        });
+
+        setDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(NotificationSettings.this, SetDate.class));
+            }
+        });
+
+        setDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(NotificationSettings.this, RecordAlertSound.class));
+            }
+        });
+
+        setDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(NotificationSettings.this, RepeatAlert.class));
+            }
+        });
+
     }
 
     @Override
