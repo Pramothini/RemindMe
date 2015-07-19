@@ -10,7 +10,6 @@ public class HomePageListActivity extends SingleFragmentActivity {
 
     @Override
     protected Fragment createFragment() {
-
         Log.d("create", "inside createFragment() in CrimeListActivity");
         return new HomePageListFragment();
     }

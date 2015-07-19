@@ -14,22 +14,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/searchLayout">
-            <ImageView android:id="@+id/searchImage"
+            <Button android:id="@+id/searchBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_alignParentRight="true"
-                android:enabled="false"
-                android:focusable="false"
-                android:padding="4dp" />
+                android:padding="4dp"
+                android:text="@string/go"
+                android:background="#ff73a2ff"/>
             <EditText android:id="@+id/searchET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@id/searchImage"
+                android:layout_toLeftOf="@id/searchBtn"
                 android:textStyle="bold"
                 android:paddingLeft="4dp"
                 android:paddingRight="4dp"
-                android:text="search" />
+                android:text="@string/search" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -42,7 +42,7 @@
                 android:textStyle="bold"
                 android:paddingLeft="4dp"
                 android:paddingRight="4dp"
-                android:text="List Name" />
+                android:text="@string/listName" />
             <TextView android:id="@+id/dateTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -50,40 +50,18 @@
                 android:paddingLeft="4dp"
                 android:paddingRight="4dp"
                 android:paddingTop="4dp"
-                android:text="Date" />
+                android:text="@string/date" />
         </RelativeLayout>
-
-
-        <!--<TableLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent">-->
-
-            <!--<TableRow-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent">-->
-
-                <!--<RelativeLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="match_parent">-->
-
-                    <!--<TextView-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:text="New Text"-->
-                        <!--android:id="@+id/textView" />-->
-                <!--</RelativeLayout>-->
-            <!--</TableRow>-->
-        <!--</TableLayout>-->
     </GridLayout>
 
-    <ImageView android:id="@+id/addNewListImageView"
+    <Button android:id="@+id/addNewListBtn"
         android:layout_alignParentBottom="true"
-        android:layout_width="95dp"
-        android:layout_height="33dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:paddingLeft="4dp"
-        android:paddingRight="4dp"
-        android:text="List Name"
-        android:layout_gravity="center_horizontal|bottom" />
+        android:text="@string/addList"
+        android:layout_gravity="center_horizontal|bottom"
+        android:visibility="gone"
+        android:background="#ff73a2ff"/>
 
 </FrameLayout>

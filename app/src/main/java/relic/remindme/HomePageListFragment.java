@@ -29,6 +29,8 @@ public class HomePageListFragment extends ListFragment {
     }
 
 
+
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        ((CrimeAdapter)getListAdapter()).notifyDataSetChanged();
@@ -50,20 +52,32 @@ public class HomePageListFragment extends ListFragment {
 
             TextView idTextView = (TextView)convertView.findViewById(R.id.listName);
 
-          // configure the view for this Student
+
                 final List l = getItem(position);
 
                 idTextView.setText(l.getListName() + "  ");
             if(position != 0 ){
                 RelativeLayout rl = (RelativeLayout)convertView.findViewById(R.id.searchLayout);
-                rl.setVisibility(View.GONE);
+                if(rl.getVisibility() == View.VISIBLE)
+                     rl.setVisibility(View.GONE);
             }
+
+            if(position == (mList.size()-1)) {
+                Button donebtn = (Button) convertView.findViewById(R.id.addNewListBtn);
+                donebtn.setVisibility(View.VISIBLE);
+                donebtn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent i = new Intent(getActivity(), ListItemActivity.class);
+                        startActivity(i);
+                    }
+                });
+            }
+
 
             RelativeLayout rlList = (RelativeLayout)convertView.findViewById(R.id.listRL);
             rlList.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Intent i = new Intent(getActivity(), ListItemActivity.class);
-//                    i.putExtra("ListName", l.getListName()+"");
                     startActivity(i);
                 }
             });

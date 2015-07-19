@@ -1,5 +1,6 @@
 package entities;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -9,10 +10,17 @@ public class List {
     private String listName;
     private String userId;
     private Date createdDate;
+    private ArrayList<ListItem> listitems;
 
     public List() {
         listName = "Groceries";
         createdDate = new Date();
+        listitems = new ArrayList<>();
+        for(int i = 0; i < 5;i++){
+            ListItem li = new ListItem();
+            listitems.add(li);
+        }
+
     }
 
     public String getListName() {
