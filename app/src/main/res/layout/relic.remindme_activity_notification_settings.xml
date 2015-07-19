@@ -70,20 +70,36 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Record Alert Sound"
             android:id="@+id/textView4"
-            android:layout_row="16"
+            android:layout_row="15"
             android:layout_column="0"
             android:layout_marginTop="30dp" />
 
-        <Switch
-            android:layout_width="331dp"
-            android:layout_height="81dp"
-            android:text="Recurring"
-            android:id="@+id/switch1"
-            android:layout_row="18"
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_row="16"
             android:layout_column="0"
-            android:checked="false"
-            android:textStyle="normal"
-            android:textSize="20dp" />
+            android:id="@+id/gridLayout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView4"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Repeat Alert"
+                android:id="@+id/textView9"
+                android:layout_row="0"
+                android:layout_column="0" />
+        </GridLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Repeat Alert"
+            android:id="@+id/textView8"
+            android:layout_row="17"
+            android:layout_column="0" />
 
     </GridLayout>
 
@@ -125,5 +141,15 @@
         android:layout_alignLeft="@+id/button5"
         android:layout_alignStart="@+id/button5"
         android:textSize="13dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EveryFriday"
+        android:id="@+id/button7"
+        android:layout_below="@+id/button6"
+        android:layout_alignLeft="@+id/button6"
+        android:layout_alignParentRight="true"
+        android:layout_alignStart="@+id/button6" />
 
 </RelativeLayout>

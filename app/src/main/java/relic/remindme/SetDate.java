@@ -13,7 +13,7 @@ public class SetDate extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-            setContentView(R.layout.setdate);
+            setContentView(R.layout.relic_remindme_setdate);
 
             DisplayMetrics dm = new DisplayMetrics();
             getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -21,7 +21,7 @@ public class SetDate extends Activity{
             int width = dm.widthPixels;
             int height = dm.heightPixels;
 
-            getWindow().setLayout((int)(width*.5),(int)(height*.5));
+            getWindow().setLayout((int)(width*.6),(int)(height*.8));
 
         }
     }

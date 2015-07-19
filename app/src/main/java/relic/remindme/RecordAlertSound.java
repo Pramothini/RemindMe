@@ -14,7 +14,7 @@ public class RecordAlertSound extends Activity {
         super.onCreate(savedInstanceState);
 
 
-        setContentView(R.layout.record_alert_sound);
+        setContentView(R.layout.relic_remindme_record_alert_sound);
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
