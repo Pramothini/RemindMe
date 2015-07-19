@@ -32,7 +32,9 @@ public class ListItemActivity extends Activity {
 
 
     public void onNotificationClick(View v){
-        Toast.makeText(ListItemActivity.this, "Notification clicked", Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(ListItemActivity.this, NotificationSettings.class);
+        startActivity(i);
+
     }
 
     public void onHomeClick(View v){
@@ -63,7 +65,6 @@ public class ListItemActivity extends Activity {
                     EditText newListItem = new EditText(ListItemActivity.this);
                     newListItem.setText("New list item");
                     grid.addView(newListItem);
-                    Toast.makeText(ListItemActivity.this, "you pressed enter", Toast.LENGTH_SHORT).show();
                     setListeners(newListItem);
                     return true;
                 }
