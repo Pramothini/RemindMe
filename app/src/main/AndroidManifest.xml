@@ -20,7 +20,10 @@
             android:name=".ListItemActivity"
             android:label="@string/app_name" >
         </activity>
+        <activity
+            android:name=".NotificationSettings"
+            android:label="@string/title_activity_notification_settings" >
+        </activity>
     </application>
-
 
 </manifest>
