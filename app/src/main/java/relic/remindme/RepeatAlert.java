@@ -13,7 +13,7 @@ public class RepeatAlert extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.relic_remindme_repeatalert);
+        setContentView(R.layout.controller_repeatalert);
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);

@@ -14,7 +14,7 @@ public class SetLocation extends Activity {
         super.onCreate(savedInstanceState);
 
 
-            setContentView(R.layout.relic_remindme_setlocation);
+            setContentView(R.layout.controller_setlocation);
 
             DisplayMetrics dm = new DisplayMetrics();
             getWindowManager().getDefaultDisplay().getMetrics(dm);

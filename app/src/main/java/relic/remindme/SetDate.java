@@ -13,7 +13,7 @@ public class SetDate extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-            setContentView(R.layout.relic_remindme_setdate);
+            setContentView(R.layout.controller_setdate);
 
             DisplayMetrics dm = new DisplayMetrics();
             getWindowManager().getDefaultDisplay().getMetrics(dm);

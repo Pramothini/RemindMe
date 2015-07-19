@@ -46,7 +46,7 @@ public class HomePageListFragment extends ListFragment {
             // if we weren't given a view, inflate one
             if (null == convertView) {
                 convertView = getActivity().getLayoutInflater()
-                    .inflate(R.layout.relic_remindme_activity_homepage, null);
+                    .inflate(R.layout.controller_activity_homepage, null);
             }
 
 

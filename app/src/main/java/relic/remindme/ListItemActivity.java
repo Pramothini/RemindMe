@@ -21,7 +21,7 @@ public class ListItemActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.relic_remindme_activity_listitem);
+        setContentView(R.layout.controller_activity_listitem);
         EditText listItem = (EditText) findViewById(R.id.listItem);
         grid = (GridLayout) findViewById(R.id.gridLayout);
         listItem.setText("New list item");

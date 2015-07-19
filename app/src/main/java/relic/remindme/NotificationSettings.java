@@ -14,7 +14,7 @@ public class NotificationSettings extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.relic_remindme_activity_notification_settings);
+        setContentView(R.layout.controller_activity_notification_settings);
 
         Button setDate = (Button) findViewById(R.id.button3);
 
