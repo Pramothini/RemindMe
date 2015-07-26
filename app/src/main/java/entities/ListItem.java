@@ -4,20 +4,20 @@ package entities;
  * Created by pramothinidk on 7/18/15.
  */
 public class ListItem {
-    private String ListName;
+    private String listItemName;
     private boolean isSwiped;
 
     public ListItem() {
-        ListName = "Milk";
+        listItemName = "Milk";
         isSwiped = false;
     }
 
-    public String getListName() {
-        return ListName;
+    public String getListItemName() {
+        return listItemName;
     }
 
-    public void setListName(String listName) {
-        ListName = listName;
+    public void setListItemName(String listItemName) {
+        this.listItemName = listItemName;
     }
 
     public boolean isSwiped() {
