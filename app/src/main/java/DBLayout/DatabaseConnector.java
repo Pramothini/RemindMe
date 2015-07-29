@@ -1,6 +1,5 @@
 package DBLayout;
 import entities.List;
-import entities.List;
 import entities.ListItem;
 
 import android.content.ContentValues;
