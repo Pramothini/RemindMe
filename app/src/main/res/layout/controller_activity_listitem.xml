@@ -59,19 +59,17 @@
                 android:background="#ff73a2ff"
                 android:onClick="onHomeClick"/>
         </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <EditText android:id="@+id/listItem"
+        <EditText android:id="@+id/listName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:paddingTop="10dp"
-            android:paddingLeft="4dp"
-            android:paddingRight="4dp"
-            android:text="@string/listItem" />
+            android:text="@string/listName" />
 
-        </RelativeLayout>
+            <EditText android:id="@+id/listItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/listItem" />
+
 
     </GridLayout>
 

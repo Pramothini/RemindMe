@@ -1,6 +1,7 @@
 package relic.remindme;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +11,12 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.GridLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+
+import adapter.ListLab;
 
 /**
  * Created by pramothinidk on 7/18/15.
@@ -19,6 +25,7 @@ import android.widget.Toast;
  */
 public class ListItemActivity extends Activity {
     GridLayout grid;
+    ListLab listLab = new ListLab(this);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,14 +39,37 @@ public class ListItemActivity extends Activity {
 
 
     public void onNotificationClick(View v){
+
+
         Intent i = new Intent(ListItemActivity.this, NotificationSettings.class);
         startActivity(i);
 
     }
 
     public void onHomeClick(View v){
-                Intent i = new Intent(ListItemActivity.this, HomePageListActivity.class);
-                startActivity(i);
+        ArrayList<String> listitems = new ArrayList<>();
+        AlertDialog.Builder builder =
+                new AlertDialog.Builder(ListItemActivity.this);
+
+        // set dialog title & message, and provide Button to dismiss
+        builder.setTitle("Number of list items");
+        String listname = "";
+        for (int i = 1; i < grid.getChildCount(); i++) {
+            EditText  et = (EditText) grid.getChildAt(i);
+            if(i==1)
+                listname = et.getText()+"";
+            else
+                listitems.add(et.getText() + "");
+        }
+
+        if(listLab.createList(listname,listitems)){
+            builder.setMessage("no of list items" + (grid.getChildCount() - 2) + " list items are: "+listitems.toString()
+                    +"list name = "+listname+" successfully created the list!");
+        }
+        builder.setPositiveButton("OK", null);
+        builder.show(); // display the Dialog
+//        Intent i = new Intent(ListItemActivity.this, HomePageListActivity.class);
+//        startActivity(i);
     }
 
     public void onQRClick(View v){

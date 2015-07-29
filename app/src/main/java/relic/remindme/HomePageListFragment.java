@@ -13,20 +13,20 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import adapter.ListLab;
-import entities.List;
+import entities.List_entity;
 
 /**
  * Populates the list details of all the lists that the user had created in the home page
  */
 public class HomePageListFragment extends ListFragment {
-    private ArrayList<List> mList;
+    private ArrayList<List_entity> mListEntity;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getActivity().setTitle("List Title");
-        mList = ListLab.get(getActivity()).getMlist();
-        ListsAdapter adapter = new ListsAdapter(mList);
+        mListEntity = ListLab.get(getActivity()).getMlist();
+        ListsAdapter adapter = new ListsAdapter(mListEntity);
         setListAdapter(adapter);
     }
 
@@ -38,8 +38,8 @@ public class HomePageListFragment extends ListFragment {
     }
 
 
-    private class ListsAdapter extends ArrayAdapter<List> {
-        public ListsAdapter(ArrayList<List> students) {
+    private class ListsAdapter extends ArrayAdapter<List_entity> {
+        public ListsAdapter(ArrayList<List_entity> students) {
             super(getActivity(), android.R.layout.simple_list_item_1, students);
         }
 
@@ -55,7 +55,7 @@ public class HomePageListFragment extends ListFragment {
             TextView idTextView = (TextView)convertView.findViewById(R.id.listName);
 
 
-                final List l = getItem(position);
+                final List_entity l = getItem(position);
 
                 idTextView.setText(l.getListName() + "  ");
             /**
@@ -70,7 +70,7 @@ public class HomePageListFragment extends ListFragment {
             /**
              * To make the add new list button visible only after the last list item
              */
-            if(position == (mList.size()-1)) {
+            if(position == (mListEntity.size()-1)) {
                 Button donebtn = (Button) convertView.findViewById(R.id.addNewListBtn);
                 donebtn.setVisibility(View.VISIBLE);
                 donebtn.setOnClickListener(new View.OnClickListener() {

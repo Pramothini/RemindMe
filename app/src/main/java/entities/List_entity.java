@@ -6,21 +6,25 @@ import java.util.Date;
 /**
  * Created by pramothinidk on 7/18/15.
  */
-public class List {
+public class List_entity {
     private String listName;
     private String userId;
     private Date createdDate;
     private ArrayList<ListItem> listitems;
 
-    public List() {
+    public List_entity() {
         listName = "Groceries";
         createdDate = new Date();
-        listitems = new ArrayList<>();
-        for(int i = 0; i < 5;i++){
+        listitems = new ArrayList<ListItem>();
+        for (int i = 0; i < 5; i++) {
             ListItem li = new ListItem();
             listitems.add(li);
         }
-
+    }
+    public List_entity(String name,ArrayList<ListItem> listitems) {
+        listName = name;
+        createdDate = new Date();
+        this.listitems = listitems;
     }
 
     public String getListName() {
