@@ -76,7 +76,7 @@ public class ListLab {
      * @param listitems
      */
     public boolean createList(String listName,ArrayList<String> listitems){
-        ArrayList<ListItem> listItemArrayList = new ArrayList<>();
+        ArrayList<ListItem> listItemArrayList = new ArrayList<ListItem>();
         for (String item:listitems)
             listItemArrayList.add(new ListItem(item));
         List_entity list_entity = new List_entity(listName,listItemArrayList);
@@ -86,7 +86,12 @@ public class ListLab {
         //defaultSocketClient.createList(list_entity);
 
         // if list is successfully created, then return true
-        return true;
+
+        DatabaseConnector databaseConnector = new DatabaseConnector(mAppContext);
+        databaseConnector.open();
+        boolean isSaved = databaseConnector.insertList(list_entity);
+        databaseConnector.close();
+        return isSaved;
 
     }
 

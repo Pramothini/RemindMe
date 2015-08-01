@@ -245,7 +245,7 @@ public class DatabaseConnector {
         @Override
         public void onCreate(SQLiteDatabase db) {
             db.execSQL("create table " + List + " (id INTEGER PRIMARY KEY AUTOINCREMENT, userid INTEGER, created_date DATETIME, listname TEXT)");
-            db.execSQL("create table " + List_Item + " (itemid INTEGER PRIMARY KEY AUTOINCREMENT, listid INTEGER, FOREIGN KEY (listid) REFERENCES List(id)");
+            db.execSQL("create table " + List_Item + " (itemid INTEGER PRIMARY KEY AUTOINCREMENT, listid INTEGER, FOREIGN KEY (listid) REFERENCES List(id))");
 //            db.execSQL("create table " + Notification + " (alarmid INTEGER PRIMARY KEY AUTOINCREMENT, listid2 INTEGER, recdays INTEGER, FOREIGN KEY (listid2) REFERENCES List(id)");
 //            db.execSQL("create table " + AlarmTypeLocation + " (alarmid_location INTEGER PRIMARY KEY AUTOINCREMENT, alarmid2 INTEGER, location String, FOREIGN KEY (alarmid2) REFERENCES Notification(alarmid)");
 //            db.execSQL("create table " + AlarmTypeDate + " (alarmid_date INTEGER PRIMARY KEY AUTOINCREMENT, alarmid3 INTEGER, date Date, FOREIGN KEY (alarmid2) REFERENCES Notification(alarmid)");
