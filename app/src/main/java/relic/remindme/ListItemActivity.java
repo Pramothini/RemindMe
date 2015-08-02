@@ -47,7 +47,7 @@ public class ListItemActivity extends Activity {
     }
 
     public void onHomeClick(View v){
-        ArrayList<String> listitems = new ArrayList<>();
+        ArrayList<String> listitems = new ArrayList<String>();
         AlertDialog.Builder builder =
                 new AlertDialog.Builder(ListItemActivity.this);
 
@@ -81,7 +81,12 @@ public class ListItemActivity extends Activity {
     }
 
     public void onShare(View v){
-        Toast.makeText(ListItemActivity.this, "Share will utilize the contacts DB and will be implemented in construction phase", Toast.LENGTH_SHORT).show();
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, getListName());
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, getListItems());
+        startActivity(Intent.createChooser(sharingIntent, "Share via"));
+//        Toast.makeText(ListItemActivity.this, "Share will utilize the contacts DB and will be implemented in construction phase", Toast.LENGTH_SHORT).show();
     }
 
     void setListeners(EditText listitem){
@@ -99,5 +104,21 @@ public class ListItemActivity extends Activity {
                 return false;
             }
         });
+    }
+
+    String getListItems(){
+        String listitems = "";
+        for (int i = 2; i < grid.getChildCount(); i++) {
+            EditText  et = (EditText) grid.getChildAt(i);
+            listitems+=et.getText() + "\n";
+        }
+        return listitems;
+    }
+
+    String getListName(){
+        String listname = "";
+        EditText  et = (EditText) grid.getChildAt(1);
+        listname+=et.getText() + "\n";
+        return listname;
     }
 }
