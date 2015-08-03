@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -22,6 +23,7 @@ import entities.List_entity;
  */
 public class HomePageListFragment extends ListFragment {
     private ArrayList<List_entity> mListEntity = new ArrayList<List_entity>();
+    ListLab listlab = new ListLab(getActivity());
 
 
 
@@ -29,7 +31,8 @@ public class HomePageListFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getActivity().setTitle("List Title");
-        mListEntity = ListLab.get(getActivity()).getMlist();
+        Log.e("ListLab", "inside onCreate in HomePageListFragment.. start");
+        mListEntity = listlab.getallLists();
         GetList getList = new GetList();
         getList.execute();
         if(mListEntity != null && mListEntity.size() > 0) {
@@ -40,6 +43,8 @@ public class HomePageListFragment extends ListFragment {
         else{
             Toast.makeText(getActivity(), "mlistentity is null", Toast.LENGTH_SHORT).show();
         }
+        Log.e("ListLab", "inside onCreate in HomePageListFragment.. end");
+
     }
 
 
@@ -111,16 +116,19 @@ public class HomePageListFragment extends ListFragment {
 
         @Override
         protected Void doInBackground(Void... params) {
-
-//            try {
-//                ListLab listlab = new ListLab(getActivity());
-//                mListEntity.add(listlab.getallLists());
-//            }
-//            catch (Exception e){
-//                e.printStackTrace();
-//            }
+            Log.e("ListLab", "inside GetList in HomePageListFragment.. start");
+            try {
+                ListLab listlab = new ListLab(getActivity());
+                mListEntity = listlab.getallLists();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+            Log.e("ListLab", "inside GetList in HomePageListFragment.. end");
             return null;
         }
+
+
     }
 
 }

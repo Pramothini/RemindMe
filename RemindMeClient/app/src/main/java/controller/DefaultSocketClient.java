@@ -165,18 +165,23 @@ public class DefaultSocketClient extends Thread implements SocketClientConstants
             }
 	}
 
-	public List_entity getAllLists(){
-		List_entity listentities = new List_entity();
+	public ArrayList<List_entity> getAllLists(){
+        Log.e("DefaultSocketClient","inside getAllLists .. start");
+        ArrayList<List_entity> listentities = new ArrayList<List_entity>();
 		try {
-            out.println("select");
-		ObjectInputStream receiveFromServer = new ObjectInputStream(sock.getInputStream());
-			List_entity le =  (List_entity) receiveFromServer.readObject();
+            Object msg = "getAllLists";
+            ObjectOutputStream sndmsgToServer = new ObjectOutputStream(sock.getOutputStream());
+            sndmsgToServer.writeObject(msg);
+
+		ObjectInputStream rcvFromServer = new ObjectInputStream(sock.getInputStream());
+            listentities =  (ArrayList<List_entity>) rcvFromServer.readObject();
 //            listentities.add(le);
 		}catch(IOException e){
 			e.printStackTrace();
 		}catch(ClassNotFoundException e){
 			e.printStackTrace();
 		}
+        Log.e("DefaultSocketClient","inside getAllLists .. end first list name returned is "+listentities.get(0).getListName());
 		return listentities;
 	}
 

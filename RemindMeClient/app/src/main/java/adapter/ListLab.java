@@ -79,8 +79,9 @@ public class ListLab  {
 
 
 
-    public List_entity getallLists(){
-        List_entity listentities = new List_entity();
+    public ArrayList<List_entity> getallLists(){
+        Log.e("ListLab","inside getallLists() in list lab class.. start");
+        ArrayList<List_entity> listentities = new ArrayList<List_entity>();
         try {
             DefaultSocketClient ds = new DefaultSocketClient(new Socket("10.0.2.2", 4444));
             if(ds.openConnection()) {
@@ -92,6 +93,7 @@ public class ListLab  {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        Log.e("ListLab","inside getallLists() in list lab class.. end. first lsit returned "+listentities.get(0).getListName());
         return listentities;
     }
 
