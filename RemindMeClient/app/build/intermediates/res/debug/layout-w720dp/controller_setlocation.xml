@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="User will be able to choose a location on Maps"
+        android:id="@+id/textView5"
+        android:layout_weight="0.23" />
+</LinearLayout><!-- From: file:/Users/pramothinidk/AndroidStudioProjects/santoshcode/RemindMe/RemindMeClient/app/src/main/res/layout-w720dp/controller_setlocation.xml -->
