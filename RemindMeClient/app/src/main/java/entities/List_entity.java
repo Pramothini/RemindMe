@@ -14,22 +14,22 @@ public class List_entity implements Serializable {
 	private int id;
 	private String listName;
 	private String userId;
-	private Date createdDate;
+	private String createdDate;
 	private String listoperation;
 	private ArrayList<ListItem> listitems;
 
 	public List_entity() {
-		listName = "Groceries";
-		createdDate = new Date();
-		listitems = new ArrayList<ListItem>();
-		for (int i = 0; i < 5; i++) {
-			ListItem li = new ListItem();
-			listitems.add(li);
-		}
+//		listName = "Groceries";
+//		createdDate = new Date().toString();
+//		listitems = new ArrayList<ListItem>();
+//		for (int i = 0; i < 5; i++) {
+//			ListItem li = new ListItem();
+//			listitems.add(li);
+//		}
 	}
 	public List_entity(String name,ArrayList<ListItem> listitems) {
 		listName = name;
-		createdDate = new Date();
+		createdDate = new Date().toString();
 		this.listitems = listitems;
 	}
 
@@ -49,11 +49,11 @@ public class List_entity implements Serializable {
 		this.userId = userId;
 	}
 
-	public Date getCreatedDate() {
+	public String getCreatedDate() {
 		return createdDate;
 	}
 
-	public void setCreatedDate(Date createdDate) {
+	public void setCreatedDate(String createdDate) {
 		this.createdDate = createdDate;
 	}
 

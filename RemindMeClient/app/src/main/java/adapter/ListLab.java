@@ -28,7 +28,6 @@ public class ListLab  {
 
     private ArrayList<List_entity> mlist;
 
-    private List_entity latestlist;
 
     private static ListLab lListLab;
     private Context mAppContext;
@@ -79,19 +78,16 @@ public class ListLab  {
 
 
 
-    public List_entity getallLists(){
-        List_entity listentities = new List_entity();
-        try {
-            DefaultSocketClient ds = new DefaultSocketClient(new Socket("10.0.2.2", 4444));
-            if(ds.openConnection()) {
-                listentities = ds.getAllLists();
-                ds.closeSession();
-            }
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public  ArrayList<List_entity> getallLists(){
+        Log.e("ListLab","inside getallLists() in list lab class.. start");
+        ArrayList<List_entity> listentities = new ArrayList<List_entity>();
+        DatabaseConnector db = new DatabaseConnector(mAppContext);
+        Cursor c = db.getAllList();
+        listentities = createListEntities(c);
+        if(listentities != null)
+        Log.e("ListLab","inside getallLists() in list lab class.. listentitites and the first item in arrlistentity is "+listentities.get(0).getListName());
+        else
+            Log.e("ListLab","inside getallLists() in list lab class listentitites is null.. end");
         return listentities;
     }
 
@@ -115,9 +111,32 @@ public class ListLab  {
         return latestListId;
     }
 
-    public List_entity getLatestList(){
-        return this.latestlist;
+    public ArrayList<List_entity> createListEntities(Cursor c){
+        Log.e("ListLab","inside createListEntities .. start");
+        ArrayList<List_entity> arrlistentity = new ArrayList<List_entity>();
+        if(c.moveToFirst()){
+            do{
+                List_entity le = new List_entity();
+                le.setId(c.getInt(c.getColumnIndex("id")));
+                le.setListName(c.getString(c.getColumnIndex("listname")));
+                le.setCreatedDate(c.getString(c.getColumnIndex("created_date")));
+                arrlistentity.add(le);
+
+            }while(c.moveToNext());
+        }
+//        else{
+//            Log.e("ListLab","inside createListEntities and Cursor does not contain any objects..");
+//            List_entity le = new List_entity();
+//            le.setId(123);
+//            le.setListName("dummy");
+//            le.setCreatedDate("08/02/1015");
+//            arrlistentity.add(le);
+//
+//        }
+        Log.e("ListLab","inside createListEntities .. end and the first item in arrlistentity is "+arrlistentity.get(0).getListName());
+        return arrlistentity;
     }
+
 
 }
 

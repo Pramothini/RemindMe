@@ -98,8 +98,8 @@ public class ListItemActivity extends Activity {
 
 
          // display the Dialog
-//        Intent i = new Intent(ListItemActivity.this, HomePageListActivity.class);
-//        startActivity(i);
+        Intent i = new Intent(ListItemActivity.this, HomePageListActivity.class);
+        startActivity(i);
     }
 
     public void onQRClick(View v){

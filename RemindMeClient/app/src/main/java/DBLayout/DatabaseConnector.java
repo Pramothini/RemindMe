@@ -165,13 +165,13 @@ public class DatabaseConnector {
 //
 //    }
 //
-//    /*to get all List Items*/
-//    public Cursor getAllList() {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        Cursor res = db.rawQuery("select * from "+List_Item, null);
-//        return res;
-//
-//    }
+    /*to get all List Items*/
+    public Cursor getAllList() {
+        open();
+        Cursor res = database.rawQuery("select * from "+List, null);
+        return res;
+
+    }
 //
 //    /*to update a records in List table*/
 //

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -22,19 +23,27 @@ import entities.List_entity;
  */
 public class HomePageListFragment extends ListFragment {
     private ArrayList<List_entity> mListEntity = new ArrayList<List_entity>();
+    ListLab listlab;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getActivity().setTitle("List Title");
-        mListEntity = ListLab.get(getActivity()).getMlist();
-        if(mListEntity != null && mListEntity.size() > 0) {
-            Toast.makeText(getActivity(), "mlistentity is not null and "+mListEntity.get(0)+" is the first list item", Toast.LENGTH_SHORT).show();
-            ListsAdapter adapter = new ListsAdapter(mListEntity);
-            setListAdapter(adapter);
+        listlab = new ListLab(getActivity());
+        Log.e("HomePage_GetList", "printing listlab object"+listlab);
+        if(listlab != null) {
+            mListEntity = listlab.getallLists();
+
+            if (mListEntity != null && mListEntity.size() > 0) {
+                Log.e("HomePage_GetList", "mlistentity is not null and " + mListEntity.get(0) + " is the first list item");
+                ListsAdapter adapter = new ListsAdapter(mListEntity);
+                setListAdapter(adapter);
+            } else {
+                Log.e("HomePage_GetList", "mlistentity is null ");
+            }
         }
         else{
-            Toast.makeText(getActivity(), "mlistentity is null", Toast.LENGTH_SHORT).show();
+            Log.e("HomePage_GetList", "listlab is null ");
         }
     }
 
