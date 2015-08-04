@@ -3,7 +3,6 @@ package entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
-
 /**
  * Created by pramothinidk on 7/18/15.
  */
@@ -17,6 +16,7 @@ public class List_entity implements Serializable {
 	private String createdDate;
 	private String listoperation;
 	private ArrayList<ListItem> listitems;
+	private Notifications notification;
 
 	public List_entity() {
 //		listName = "Groceries";
@@ -65,7 +65,15 @@ public class List_entity implements Serializable {
 		this.listoperation = listoperation;
 	}
 
-/*to add listitems*/
+	public Notifications getNotification() {
+		return notification;
+	}
+
+	public void setNotification(Notifications notification) {
+		this.notification = notification;
+	}
+
+	/*to add listitems*/
 
 	public void setListItems(ArrayList<ListItem> listitems){
 		this.listitems=listitems;
