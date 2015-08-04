@@ -3,4 +3,4 @@
   android:id="@+id/fragmentContainer"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  /><!-- From: file:/Users/pramothinidk/AndroidStudioProjects/santoshcode/RemindMe/RemindMeClient/app/src/main/res/layout-land/controller_activity_fragment.xml -->
+  /><!-- From: file:/Users/pramothinidk/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/layout-land/controller_activity_fragment.xml -->

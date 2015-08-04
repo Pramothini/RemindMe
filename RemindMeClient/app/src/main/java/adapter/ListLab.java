@@ -101,32 +101,18 @@ public class ListLab  {
      * @param listName - name of the list
      * @param listitems
      */
-    public boolean createList(String listName,ArrayList<String> listitems){
+    public long createList(String listName,ArrayList<String> listitems){
+        long latestListId;
         Log.e("pinky","inside createList() in list lab class.. start");
         ArrayList<ListItem> listItemArrayList = new ArrayList<>();
         for (String item:listitems)
             listItemArrayList.add(new ListItem(item));
         List_entity list_entity = new List_entity(listName,listItemArrayList);
-
-        latestlist=list_entity;
-        try {
-
-            DefaultSocketClient ds = new DefaultSocketClient(new Socket("10.0.2.2", 4444));
-            if(ds.openConnection()) {
-                ds.upload(list_entity);
-                ds.closeSession();
-            }
-            Log.e("pinky", "inside createList() in list lab class.. end");
-    } catch (UnknownHostException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        //create the object of default socket client and pass the
-        // list_entity object
-        // if list is successfully created, then return true
-        return true;
+        DatabaseConnector db = new DatabaseConnector(mAppContext);
+        db.open();
+        latestListId = db.insertList(list_entity);
+        db.close();
+        return latestListId;
     }
 
     public List_entity getLatestList(){

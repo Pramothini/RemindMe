@@ -34,8 +34,7 @@ import entities.List_entity;
 public class ListItemActivity extends Activity {
     GridLayout grid;
     ListLab listLab = new ListLab(this);
-    String listname = "";
-    ArrayList<String> listitems = new ArrayList<>();
+
 
 //    private Socket client;
     private PrintWriter printwriter;
@@ -64,6 +63,10 @@ public class ListItemActivity extends Activity {
     }
 
     public void onHomeClick(View v){
+        String listname = "";
+        ArrayList<String> listitems = new ArrayList<>();
+        String msg = "";
+        int listid;
         Log.e("pink","inside onHomeClick ");
         AlertDialog.Builder builder =
                 new AlertDialog.Builder(ListItemActivity.this);
@@ -78,18 +81,21 @@ public class ListItemActivity extends Activity {
             else
                 listitems.add(et.getText() + "");
         }
+        msg = "no of list items" + (grid.getChildCount() - 2) + " list items are: "+listitems.toString()
+                +"list name = "+listname;
 
-            builder.setMessage("no of list items" + (grid.getChildCount() - 2) + " list items are: "+listitems.toString()
-                    +"list name = "+listname+" successfully created the list!..now connecting");
+        listid = (int) listLab.createList(listname,listitems);
 
-            SendMessage sendMessageTask = new SendMessage();
-            sendMessageTask.execute();
+        if(listid != -1)
+            msg += "saved success";
+        else
+            msg += "not success";
 
+        builder.setMessage(msg);
 
         builder.setPositiveButton("OK", null);
         builder.show();
 
-        //defaultSocket.run();
 
          // display the Dialog
 //        Intent i = new Intent(ListItemActivity.this, HomePageListActivity.class);
@@ -126,76 +132,6 @@ public class ListItemActivity extends Activity {
     }
 
 
-    private class SendMessage extends AsyncTask<Void, Void, Void> {
 
-        @Override
-        protected Void doInBackground(Void... params) {
-            try {
-
-                Log.e("pink","going to call createList from activity");
-                listLab.createList(listname, listitems);
-//                List_entity newList = new List_entity();
-//
-//                newList
-//                DefaultSocketClient ds = new DefaultSocketClient(new Socket("10.0.2.2", 4444));
-//
-//
-//                dr.setListLabObjects(listLab);
-//                dr.printListLabObjects(listLab);
-//                dr.getListName();
-//
-//                ds.upload(dr);
-
-//                client = new Socket("10.0.2.2", 4444); // connect to the server
-
-
-
-//                PrintWriter out = new PrintWriter(client.getOutputStream(), true);
-//
-//                out.println("insert");
-//                out.close();
-//                client = new Socket("localhost", 4444); // connect to the server
-
-                //printwriter = new PrintWriter(client.getOutputStream(), true);
-                //printwriter.write(message); // write the message to output stream
-//                ObjectOutputStream sendToServer = new ObjectOutputStream(new BufferedOutputStream(client.getOutputStream()));
-
-
-
-
-//                ObjectOutputStream sendToServer = new ObjectOutputStream(client.getOutputStream());
-//                sendToServer.writeObject(dr);
-
-
-
-
-
-
-//                sendToServer.flush();
-
-               // printwriter.flush();
-                // printwriter.close();
-               // client.close(); // closing the connection
-
-//                try {
-////                    out = null;
-//                    client.close();
-//                }
-//                catch (IOException e){
-//                    e.printStackTrace();
-//                }
-
-//            } catch (UnknownHostException e) {
-//                e.printStackTrace();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-            }
-                catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-    }
 }
 

@@ -27,7 +27,7 @@ public class DatabaseConnector {
     public static final String List = "LIST";
     public static final String COL_1 = "id";
     public static final String COL_2 = "userid";
-    public static final String COL_3 = "date";
+    public static final String COL_3 = "created_date";
     public static final String COL_4 = "listname";
 
     public static final String List_Item = "LISTITEM";
@@ -75,19 +75,16 @@ public class DatabaseConnector {
 
 
     /*to insert data in List table*/
-    public boolean insertList(List_entity listEntity) {
+    public long insertList(List_entity listEntity) {
+        long listid;
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, "1234");
         contentValues.put(COL_3, listEntity.getCreatedDate()+"");
         contentValues.put(COL_4, listEntity.getListName());
-        try {
-            open(); // open the database
-            database.insert(List, null, contentValues);
-            close(); // close the database
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+        open(); // open the database
+        listid = database.insert(List, null, contentValues);
+        close(); // close the database
+        return listid;
     }
 
     /*to insert data in List Items*/

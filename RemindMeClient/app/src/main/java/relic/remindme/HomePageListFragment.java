@@ -23,15 +23,11 @@ import entities.List_entity;
 public class HomePageListFragment extends ListFragment {
     private ArrayList<List_entity> mListEntity = new ArrayList<List_entity>();
 
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getActivity().setTitle("List Title");
         mListEntity = ListLab.get(getActivity()).getMlist();
-        GetList getList = new GetList();
-        getList.execute();
         if(mListEntity != null && mListEntity.size() > 0) {
             Toast.makeText(getActivity(), "mlistentity is not null and "+mListEntity.get(0)+" is the first list item", Toast.LENGTH_SHORT).show();
             ListsAdapter adapter = new ListsAdapter(mListEntity);
@@ -107,21 +103,7 @@ public class HomePageListFragment extends ListFragment {
         }
     }
 
-    private class GetList extends AsyncTask<Void, Void, Void> {
 
-        @Override
-        protected Void doInBackground(Void... params) {
-
-//            try {
-//                ListLab listlab = new ListLab(getActivity());
-//                mListEntity.add(listlab.getallLists());
-//            }
-//            catch (Exception e){
-//                e.printStackTrace();
-//            }
-            return null;
-        }
-    }
 
 }
 

@@ -12,4 +12,4 @@
         android:id="@+id/textView6"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.16" />
-</LinearLayout><!-- From: file:/Users/pramothinidk/AndroidStudioProjects/santoshcode/RemindMe/RemindMeClient/app/src/main/res/layout-land/controller_repeatalert.xml -->
+</LinearLayout><!-- From: file:/Users/pramothinidk/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/layout-land/controller_repeatalert.xml -->
