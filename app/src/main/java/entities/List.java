@@ -1,5 +1,7 @@
 package entities;
 
+import android.app.Notification;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -11,6 +13,7 @@ public class List {
     private String userId;
     private Date createdDate;
     private ArrayList<ListItem> listitems;
+    private ArrayList<Notifications> notifications;
 
     public List() {
         listName = "Groceries";

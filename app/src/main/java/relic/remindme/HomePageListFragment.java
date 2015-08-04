@@ -14,12 +14,17 @@ import java.util.ArrayList;
 
 import adapter.ListLab;
 import entities.List;
+import entities.ListLocation;
 
 /**
  * Populates the list details of all the lists that the user had created in the home page
  */
 public class HomePageListFragment extends ListFragment {
     private ArrayList<List> mList;
+
+    // array list that stores the lists and co-ordinates
+   // ArrayList<ListLocation> bigList = new ArrayList<ListLocation>();
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
