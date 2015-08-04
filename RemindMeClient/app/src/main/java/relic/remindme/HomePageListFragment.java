@@ -92,6 +92,12 @@ public class HomePageListFragment extends ListFragment {
                 donebtn.setVisibility(View.VISIBLE);
                 donebtn.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
+//                        int newlistid;
+//                        ListLab listlab = new ListLab(getActivity());
+//                        newlistid = listlab.createNewList();
+//                        Toast toast = Toast.makeText(getActivity(), "New list is created and its id is"+newlistid,Toast.LENGTH_SHORT );
+//                        Log.e("HomePage","inside on add new list button click, New list is created and its id is"+newlistid);
+//                        toast.show();
                         Intent i = new Intent(getActivity(), ListItemActivity.class);
                         startActivity(i);
                     }
@@ -102,6 +108,7 @@ public class HomePageListFragment extends ListFragment {
             RelativeLayout rlList = (RelativeLayout)convertView.findViewById(R.id.listRL);
             rlList.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
+
                     Intent i = new Intent(getActivity(), ListItemActivity.class);
                     startActivity(i);
                 }

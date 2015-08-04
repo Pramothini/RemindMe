@@ -73,6 +73,19 @@ public class DatabaseConnector {
             database.close(); // close the database connection
     } // end method close
 
+    /*to insert data in List table*/
+    public long insertNewList(List_entity listEntity) {
+        long listid;
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_2, "");
+        contentValues.put(COL_3, "");
+        contentValues.put(COL_4, "");
+        open(); // open the database
+        listid = database.insert(List, null, contentValues);
+        close(); // close the database
+        return listid;
+    }
+
 
     /*to insert data in List table*/
     public long insertList(List_entity listEntity) {
