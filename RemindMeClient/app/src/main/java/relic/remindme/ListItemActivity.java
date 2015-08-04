@@ -98,7 +98,7 @@ public class ListItemActivity extends Activity {
 
 
          // display the Dialog
-        Intent i = new Intent(ListItemActivity.this, HomePageListActivity.class);
+        Intent i = new Intent(ListItemActivity.this, HomePage.class);
         startActivity(i);
     }
 

@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" tools:context="com.example.TodoList.List_Screen">
+    <item android:id="@+id/action_Notification" android:title="@string/action_Notification"
+        android:orderInCategory="100" android:showAsAction="never" />
+    <item android:id="@+id/action_QRScanner" android:title="@string/QRBarcodeScanner"
+        android:orderInCategory="100" android:showAsAction="never" />
+</menu>
+<!-- From: file:/Users/pramothinidk/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/menu/menu_list__screen.xml -->

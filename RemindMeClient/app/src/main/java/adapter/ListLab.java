@@ -85,21 +85,21 @@ public class ListLab  {
         Cursor c = db.getAllList();
         listentities = createListEntities(c);
         if(listentities != null)
-        Log.e("ListLab","inside getallLists() in list lab class.. listentitites and the first item in arrlistentity is "+listentities.get(0).getListName());
+        Log.e("ListLab","inside getallLists() in list lab class.. listentitites and the first item in arrlistentity is ");
         else
             Log.e("ListLab","inside getallLists() in list lab class listentitites is null.. end");
         return listentities;
     }
 
-    public int createNewList(){
-        int latestListId;
-        List_entity list_entity = new List_entity();
-        DatabaseConnector db = new DatabaseConnector(mAppContext);
-        db.open();
-        latestListId = (int)db.insertNewList(list_entity);
-        db.close();
-        return latestListId;
-    }
+//    public int createNewList(){
+//        int latestListId;
+//        List_entity list_entity = new List_entity();
+//        DatabaseConnector db = new DatabaseConnector(mAppContext);
+//        db.open();
+//        latestListId = (int)db.insertNewList(list_entity);
+//        db.close();
+//        return latestListId;
+//    }
 
     /**
      * creates  and returns the list_entity object based on the values entered by the user
@@ -142,7 +142,7 @@ public class ListLab  {
 //            arrlistentity.add(le);
 //
 //        }
-        Log.e("ListLab","inside createListEntities .. end and the first item in arrlistentity is "+arrlistentity.get(0).getListName());
+        Log.e("ListLab","inside createListEntities .. end and the first item in arrlistentity is ");
         return arrlistentity;
     }
 
