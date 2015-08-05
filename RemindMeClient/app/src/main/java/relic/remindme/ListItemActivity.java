@@ -164,6 +164,7 @@ public class ListItemActivity extends ListActivity {
             String QR_listitem = extras.getString("QR_item");
             Toast.makeText(this,"added item:" + QR_listitem, Toast.LENGTH_LONG).show();
             edit.setText(edit.getText()+QR_listitem);
+            listname = extras.getString("ListName");
 
         }
 
@@ -173,16 +174,6 @@ public class ListItemActivity extends ListActivity {
         /** Reference to the delete button of the layout main.xml */
         Button btnDel = (Button) findViewById(R.id.btnDel);
 
-<<<<<<< Updated upstream
-
-=======
-        Bundle extras = getIntent().getExtras();
-        if (extras != null)
-        {
-            String QR_listitem = extras.getString("contents");
-            listname = extras.getString("ListName");
-        }
->>>>>>> Stashed changes
 
         Toast toast = Toast.makeText(this, "you have clicked on "+listname, Toast.LENGTH_LONG);
         toast.show();

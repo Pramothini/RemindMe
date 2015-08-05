@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/values-w820dp/dimens.xml -->
+    <!-- From: file:/Users/pramothinidk/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/values-w820dp/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">@dimen/margin_huge</dimen>
     <dimen name="activity_vertical_margin">@dimen/margin_medium</dimen>
@@ -9,7 +9,7 @@
     <dimen name="margin_medium">16dp</dimen>
     <dimen name="margin_small">8dp</dimen>
     <dimen name="margin_tiny">4dp</dimen>
-    <!-- From: file:/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/values-w820dp/strings.xml -->
+    <!-- From: file:/Users/pramothinidk/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/values-w820dp/strings.xml -->
     <eat-comment/>
     <string name="action_settings">Settings</string>
     <string name="addList">Add New List</string>
@@ -31,7 +31,7 @@
     <string name="share">Share</string>
     <string name="title_activity_notification_settings">NotificationSettings</string>
     <string name="trash">Trash</string>
-    <!-- From: file:/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/values-w820dp/styles.xml -->
+    <!-- From: file:/Users/pramothinidk/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/values-w820dp/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->

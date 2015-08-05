@@ -11,4 +11,4 @@
         android:text="User will be able to choose a location on Maps"
         android:id="@+id/textView5"
         android:layout_weight="0.23" />
-</LinearLayout><!-- From: file:/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/layout-w820dp/controller_setlocation.xml -->
+</LinearLayout><!-- From: file:/Users/pramothinidk/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/layout-w820dp/controller_setlocation.xml -->

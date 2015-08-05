@@ -8,4 +8,4 @@
         android:layout_height="match_parent"
         android:id="@+id/calendarView"
         android:layout_gravity="center_horizontal" />
-</LinearLayout><!-- From: file:/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/layout-land/controller_setdate.xml -->
+</LinearLayout><!-- From: file:/Users/pramothinidk/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/layout-land/controller_setdate.xml -->

@@ -278,15 +278,10 @@ public class DatabaseConnector {
         @Override
         public void onCreate(SQLiteDatabase db) {
             db.execSQL("create table " + List + " (id INTEGER PRIMARY KEY AUTOINCREMENT, userid INTEGER, created_date DATETIME, listname TEXT)");
-<<<<<<< Updated upstream
-            db.execSQL("create table " + List_Item + " (itemid INTEGER PRIMARY KEY AUTOINCREMENT, listid INTEGER, FOREIGN KEY (listid) REFERENCES List(id))");
-//            db.execSQL("create table " + Notification + " (alarmid INTEGER PRIMARY KEY AUTOINCREMENT, listid2 INTEGER, recdays INTEGER, FOREIGN KEY (listid2) REFERENCES List(id)");
-=======
             db.execSQL("create table " + List_Item + " (itemid INTEGER PRIMARY KEY AUTOINCREMENT,itemname Text, listid INTEGER, FOREIGN KEY (listid) REFERENCES LIST(id))");
 
 
 //          db.execSQL("create table " + Notification + " (alarmid INTEGER PRIMARY KEY AUTOINCREMENT, listid2 INTEGER, recdays INTEGER, FOREIGN KEY (listid2) REFERENCES List(id)");
->>>>>>> Stashed changes
 //            db.execSQL("create table " + AlarmTypeLocation + " (alarmid_location INTEGER PRIMARY KEY AUTOINCREMENT, alarmid2 INTEGER, location String, FOREIGN KEY (alarmid2) REFERENCES Notification(alarmid)");
 //            db.execSQL("create table " + AlarmTypeDate + " (alarmid_date INTEGER PRIMARY KEY AUTOINCREMENT, alarmid3 INTEGER, date Date, FOREIGN KEY (alarmid2) REFERENCES Notification(alarmid)");
 //            db.execSQL("create table " + AlarmTypeSound + " (alarmid_sound INTEGER PRIMARY KEY AUTOINCREMENT, alarmid4 INTEGER, sound String, FOREIGN KEY (alarmid2) REFERENCES Notification(alarmid)");
