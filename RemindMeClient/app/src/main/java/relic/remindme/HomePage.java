@@ -15,10 +15,15 @@ import android.widget.ListAdapter;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.provider.Settings.Secure;
 
 import java.util.ArrayList;
 
+import adapter.Creatable;
+import adapter.Deletable;
 import adapter.ListLab;
+import adapter.Manage;
+import adapter.Readable;
 import entities.List_entity;
 
 /**
@@ -29,11 +34,24 @@ public class HomePage extends ListActivity {
     private ArrayList<List_entity> mListEntity = new ArrayList<List_entity>();
     ListLab listlab = ListLab.get(this);
     private ListAdapter listAdapter;
+    private String android_id;
+    Deletable del;
+    Creatable create;
+    Readable read;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+       android_id = Secure.getString(this.getContentResolver(),
+                Secure.ANDROID_ID);
+        Toast toast = Toast.makeText(this, "my android id is" + android_id, Toast.LENGTH_LONG);
+        toast.show();
+        del = new Manage(this);
+        create = new Manage(this);
+        read = new Manage(this);
+
         updateUI();
     }
 
@@ -66,7 +84,7 @@ public class HomePage extends ListActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String task = inputField.getText().toString();
 
-                        int id = listlab.createNewList(task);
+                        int id = create.createNewList(task,android_id);
                         Toast toast = Toast.makeText(inputField.getContext(), "created a new list and the list id is" + id, Toast.LENGTH_LONG);
                         toast.show();
 
@@ -85,18 +103,11 @@ public class HomePage extends ListActivity {
     }
 
     private void updateUI() {
-//        helper = new TaskDBHelper(MainActivity.this);
-//        SQLiteDatabase sqlDB = helper.getReadableDatabase();
-//        Cursor cursor = sqlDB.query(TaskContract.TABLE,
-//                new String[]{TaskContract.Columns._ID, TaskContract.Columns.TASK},
-//                null, null, null, null, null);
-
-
-       ListLab listlab = new ListLab(this);
+//        ListLab listlab = ListLab.getlListLab();
         Log.e("HomePage_GetList", "printing listlab object"+listlab);
-        if(listlab != null) {
+//        if(listlab != null) {
             Log.e("HomePage_GetList", "printing listlab object is not null "+listlab);
-            mListEntity = listlab.getallLists();
+            mListEntity = read.getallLists();
             String[] columns = new String[] { "TASK", "_ID"};
 
             MatrixCursor matrixCursor= new MatrixCursor(columns);
@@ -120,21 +131,10 @@ public class HomePage extends ListActivity {
             this.setListAdapter(listAdapter);
 
             Log.e("HomePage_GetList", "list names from db "+listnames.toString());
-//            Toast toast = Toast.makeText(this, "all list names " + listnames.toString(), Toast.LENGTH_LONG);
-//            toast.show();
-
-
-//            if (mListEntity != null && mListEntity.size() > 0) {
-//                Log.e("HomePage_GetList", "mlistentity is not null and " + mListEntity.get(0) + " is the first list item");
-//                listAdapter = new ArrayAdapter(this,R.layout.task_view,listnames);
-//                setListAdapter(listAdapter);
-//            } else {
-//                Log.e("HomePage_GetList", "mlistentity is null ");
-//            }
-        }
-        else{
-            Log.e("HomePage_GetList", "listlab is null ");
-        }
+//        }
+//        else{
+//            Log.e("HomePage_GetList", "listlab is null ");
+//        }
 
 
 
@@ -163,7 +163,7 @@ public class HomePage extends ListActivity {
         View v = (View) view.getParent();
         TextView taskTextView = (TextView) v.findViewById(R.id.taskTextView);
         String task = taskTextView.getText().toString();
-        listlab.deleteList(task);
+        del.deleteList(task);
         updateUI();
     }
 

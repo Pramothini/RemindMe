@@ -15,6 +15,7 @@ import java.util.Date;
 
 import entities.ListItem;
 import entities.List_entity;
+import entities.Notifications;
 
 public class DatabaseConnector {
     private SQLiteDatabase database; // database object
@@ -75,11 +76,23 @@ public class DatabaseConnector {
             database.close(); // close the database connection
     } // end method close
 
+//    public long insertNewNotification(Notifications n) {
+////        long listid;
+////        ContentValues contentValues = new ContentValues();
+////        contentValues.put(COL_2, android_id);
+////        contentValues.put(COL_3, "");
+////        contentValues.put(COL_4, listname);
+////        open(); // open the database
+////        listid = database.insert(List, null, contentValues);
+////        close(); // close the database
+////        return listid;
+//    }
+
     /*to insert data in List table*/
-    public long insertNewList(String listname) {
+    public long insertNewList(String listname, String android_id) {
         long listid;
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_2, "");
+        contentValues.put(COL_2, android_id);
         contentValues.put(COL_3, "");
         contentValues.put(COL_4, listname);
         open(); // open the database
@@ -215,6 +228,8 @@ public class DatabaseConnector {
         return res;
 
     }
+
+
 //
 //    /*to update a records in List table*/
 //
@@ -269,12 +284,7 @@ public class DatabaseConnector {
         public void onCreate(SQLiteDatabase db) {
             db.execSQL("create table " + List + " (id INTEGER PRIMARY KEY AUTOINCREMENT, userid INTEGER, created_date DATETIME, listname TEXT)");
             db.execSQL("create table " + List_Item + " (itemid INTEGER PRIMARY KEY AUTOINCREMENT,itemname Text, listid INTEGER, FOREIGN KEY (listid) REFERENCES LIST(id))");
-
-
-//          db.execSQL("create table " + Notification + " (alarmid INTEGER PRIMARY KEY AUTOINCREMENT, listid2 INTEGER, recdays INTEGER, FOREIGN KEY (listid2) REFERENCES List(id)");
-//            db.execSQL("create table " + AlarmTypeLocation + " (alarmid_location INTEGER PRIMARY KEY AUTOINCREMENT, alarmid2 INTEGER, location String, FOREIGN KEY (alarmid2) REFERENCES Notification(alarmid)");
-//            db.execSQL("create table " + AlarmTypeDate + " (alarmid_date INTEGER PRIMARY KEY AUTOINCREMENT, alarmid3 INTEGER, date Date, FOREIGN KEY (alarmid2) REFERENCES Notification(alarmid)");
-//            db.execSQL("create table " + AlarmTypeSound + " (alarmid_sound INTEGER PRIMARY KEY AUTOINCREMENT, alarmid4 INTEGER, sound String, FOREIGN KEY (alarmid2) REFERENCES Notification(alarmid)");
+          db.execSQL("create table " + Notification + " (notification_id INTEGER PRIMARY KEY AUTOINCREMENT, list_id INTEGER, latitude double, longitute double, day INTEGER, month INTEGER, year INTEGER, hour INTEGER, minute INTEGER, recdays INTEGER, FOREIGN KEY (list_id) REFERENCES LIST(id))");
 
         }
 

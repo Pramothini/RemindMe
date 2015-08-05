@@ -14,12 +14,12 @@ public class Notifications {
     private double latitude;
     private double longitude;
 
-    private boolean isRecurring;
 
-    private int days_recur;
+
+    private int days_recur=0;
 
     public Notifications(int year, int month, int date, int hour, int
-            minute, double latitude, double longitude, boolean isRecurring, int
+            minute, double latitude, double longitude, int
                                  days_recur) {
         this.year = year;
         this.month = month;
@@ -28,7 +28,7 @@ public class Notifications {
         this.minute = minute;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.isRecurring = isRecurring;
+
         this.days_recur = days_recur;
     }
 
@@ -86,14 +86,6 @@ public class Notifications {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
-    }
-
-    public boolean isRecurring() {
-        return isRecurring;
-    }
-
-    public void setIsRecurring(boolean isRecurring) {
-        this.isRecurring = isRecurring;
     }
 
     public int getDays_recur() {

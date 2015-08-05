@@ -37,11 +37,11 @@ public class ListLab  {
     public ListLab(Context appContext) {
         mAppContext = appContext;
         db = new DatabaseConnector(mAppContext);
-        mlist = new ArrayList<List_entity>();
-        for (int i = 0; i < 10; i++) {
-            List_entity l = new List_entity();
-            mlist.add(l);
-        }
+//        mlist = new ArrayList<List_entity>();
+//        for (int i = 0; i < 10; i++) {
+//            List_entity l = new List_entity();
+//            mlist.add(l);
+//        }
 
     }
 
@@ -128,12 +128,12 @@ public class ListLab  {
        return listitemid;
     }
 
-    public int createNewList(String listname){
+    public int createNewList(String listname,String android_id){
         int latestListId;
         List_entity list_entity = new List_entity();
         DatabaseConnector db = getDb();
         db.open();
-        latestListId = (int)db.insertNewList(listname);
+        latestListId = (int)db.insertNewList(listname,android_id);
         db.close();
         return latestListId;
     }
@@ -206,7 +206,7 @@ public class ListLab  {
         return  itemnames;
     }
 
-    void deleteAllListItems(int listid){
+    public void deleteAllListItems(int listid){
         getDb().open();
         getDb().deleteListItems(listid);
         getDb().close();

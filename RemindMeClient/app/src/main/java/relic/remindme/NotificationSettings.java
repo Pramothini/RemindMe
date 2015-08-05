@@ -31,6 +31,7 @@ import java.util.Calendar;
 import java.util.LinkedList;
 
 
+import entities.Notifications;
 import relic.remindme.push_Notifications.Notification_Time;
 import relic.remindme.push_Notifications.NotifyMessage;
 
@@ -56,7 +57,7 @@ public class NotificationSettings extends Activity{
     private TextView textViewTime;
     private TimePicker timePicker;
     private Button button;
-
+    private String listname;
 
     static final int TIME_DIALOG_ID = 990;
 
@@ -78,6 +79,14 @@ public class NotificationSettings extends Activity{
         setCurrentTimeOnView();
         addButtonListener();
 
+        Bundle extras = getIntent().getExtras();
+        if (extras != null)
+        {
+            listname = extras.getString("ListName");
+            Toast.makeText(this,"list name:" +listname , Toast.LENGTH_LONG).show();
+
+        }
+
         Change_Location = (Button) findViewById(R.id.btnChangeLocation);
         Change_Location.setOnClickListener(new View.OnClickListener() {
 
@@ -90,6 +99,12 @@ public class NotificationSettings extends Activity{
         });
 
         compareDateTime(day, month, year, hour, minute);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Notifications new_notification = new Notifications(year, month, day, hour, minute, 66, 67, 0);
+
     }
 
     // display current date

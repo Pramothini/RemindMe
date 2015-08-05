@@ -286,6 +286,7 @@ public class ListItemActivity extends ListActivity {
             case R.id.action_Notification:
 
                 Intent j =new Intent();
+                j.putExtra("lisname",listname);
                 j.setClass(this,NotificationSettings.class);
                 startActivity(j);
                 return true;
