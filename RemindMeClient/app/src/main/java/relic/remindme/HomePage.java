@@ -35,7 +35,7 @@ import entities.List_entity;
  */
 public class HomePage extends ListActivity {
     private ArrayList<List_entity> mListEntity = new ArrayList<List_entity>();
-    ListLab listlab;
+    ListLab listlab = new ListLab(this);
     private ListAdapter listAdapter;
 
     @Override
@@ -44,78 +44,7 @@ public class HomePage extends ListActivity {
         setContentView(R.layout.main);
         updateUI();
     }
-
-
-
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-////        ((CrimeAdapter)getListAdapter()).notifyDataSetChanged();
-//    }
-
-
-//    private class ListsAdapter extends ArrayAdapter<List_entity> {
-//        public ListsAdapter(ArrayList<List_entity> students) {
-//            super(getActivity(), android.R.layout.simple_list_item_1, students);
-//        }
-//
-//        @Override
-//        public View getView(int position, View convertView, ViewGroup parent) {
-//            // if we weren't given a view, inflate one
-//            if (null == convertView) {
-//                convertView = getActivity().getLayoutInflater()
-//                    .inflate(R.layout.controller_activity_homepage, null);
-//            }
-//
-//
-//            TextView idTextView = (TextView)convertView.findViewById(R.id.listName);
-//
-//
-//                final List_entity l = getItem(position);
-//
-//                idTextView.setText(l.getListName() + "  ");
-//            /**
-//             * To make the search visible only before the first item of the list
-//             */
-//            if(position != 0 ){
-//                RelativeLayout rl = (RelativeLayout)convertView.findViewById(R.id.searchLayout);
-//                if(rl.getVisibility() == View.VISIBLE)
-//                     rl.setVisibility(View.GONE);
-//            }
-//
-//            /**
-//             * To make the add new list button visible only after the last list item
-//             */
-//            if(position == (mListEntity.size()-1)) {
-//                Button donebtn = (Button) convertView.findViewById(R.id.addNewListBtn);
-//                donebtn.setVisibility(View.VISIBLE);
-//                donebtn.setOnClickListener(new View.OnClickListener() {
-//                    public void onClick(View v) {
-////                        int newlistid;
-////                        ListLab listlab = new ListLab(getActivity());
-////                        newlistid = listlab.createNewList();
-////                        Toast toast = Toast.makeText(getActivity(), "New list is created and its id is"+newlistid,Toast.LENGTH_SHORT );
-////                        Log.e("HomePage","inside on add new list button click, New list is created and its id is"+newlistid);
-////                        toast.show();
-//                        Intent i = new Intent(getActivity(), ListItemActivity.class);
-//                        startActivity(i);
-//                    }
-//                });
-//            }
-//
-//
-//            RelativeLayout rlList = (RelativeLayout)convertView.findViewById(R.id.listRL);
-//            rlList.setOnClickListener(new View.OnClickListener() {
-//                public void onClick(View v) {
-//
-//                    Intent i = new Intent(getActivity(), ListItemActivity.class);
-//                    startActivity(i);
-//                }
-//            });
-//
-//
-//            return convertView;
-//        }
-//    }
+    
 
     //new design
     @Override
@@ -139,15 +68,10 @@ public class HomePage extends ListActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String task = inputField.getText().toString();
 
-                        // insert a new list in the UI
-//                        helper = new TaskDBHelper(MainActivity.this);
-//                        SQLiteDatabase db = helper.getWritableDatabase();
-//                        ContentValues values = new ContentValues();
-//
-//                        values.clear();
-//                        values.put(TaskContract.Columns.TASK,task);
-//
-//                        db.insertWithOnConflict(TaskContract.TABLE,null,values,SQLiteDatabase.CONFLICT_IGNORE);
+                        int id = listlab.createNewList(task);
+                        Toast toast = Toast.makeText(inputField.getContext(), "created a new list and the list id is" + id, Toast.LENGTH_LONG);
+                        toast.show();
+
                         updateUI();
                     }
                 });
@@ -170,17 +94,39 @@ public class HomePage extends ListActivity {
 //                null, null, null, null, null);
 
 
-//       ListLab listlab = new ListLab(this);
-//        Log.e("HomePage_GetList", "printing listlab object"+listlab);
-//        if(listlab != null) {
-//            mListEntity = listlab.getallLists();
-//            ArrayList<String> listnames= new ArrayList<String>();
-//            for(List_entity s:mListEntity)
-//                listnames.add(s.getListName());
-//
-//            //comment this later
+       ListLab listlab = new ListLab(this);
+        Log.e("HomePage_GetList", "printing listlab object"+listlab);
+        if(listlab != null) {
+            Log.e("HomePage_GetList", "printing listlab object is not null "+listlab);
+            mListEntity = listlab.getallLists();
+            String[] columns = new String[] { "TASK", "_ID"};
+
+            MatrixCursor matrixCursor= new MatrixCursor(columns);
+            startManagingCursor(matrixCursor);
+
+            ArrayList<String> listnames= new ArrayList<String>();
+            for(List_entity s:mListEntity) {
+                matrixCursor.addRow(new Object[]{s.getListName(), s.getId()});
+                listnames.add(s.getListName());
+            }
+
+            listAdapter = new SimpleCursorAdapter(
+                    this,
+                    R.layout.task_view,
+                    matrixCursor,
+                    new String[] { "TASK" },
+                    new int[]{R.id.taskTextView},
+                    0
+            );
+
+            this.setListAdapter(listAdapter);
+
+            Log.e("HomePage_GetList", "list names from db "+listnames.toString());
+            Toast toast = Toast.makeText(this, "all list names " + listnames.toString(), Toast.LENGTH_LONG);
+            toast.show();
+            //comment this later
 //            listnames.add("dummy");
-//
+
 //            if (mListEntity != null && mListEntity.size() > 0) {
 //                Log.e("HomePage_GetList", "mlistentity is not null and " + mListEntity.get(0) + " is the first list item");
 //                listAdapter = new ArrayAdapter(this,R.layout.task_view,listnames);
@@ -188,30 +134,32 @@ public class HomePage extends ListActivity {
 //            } else {
 //                Log.e("HomePage_GetList", "mlistentity is null ");
 //            }
-//        }
-//        else{
-//            Log.e("HomePage_GetList", "listlab is null ");
-//        }
+        }
+        else{
+            Log.e("HomePage_GetList", "listlab is null ");
+        }
 
 
-        String[] columns = new String[] { "TASK", "_ID"};
 
-        MatrixCursor matrixCursor= new MatrixCursor(columns);
-        startManagingCursor(matrixCursor);
 
-        matrixCursor.addRow(new Object[]{"Item A", "1"});
-        matrixCursor.addRow(new Object[]{"Item B", "2"});
-
-        listAdapter = new SimpleCursorAdapter(
-                this,
-                R.layout.task_view,
-                matrixCursor,
-                new String[] { "TASK" },
-                new int[]{R.id.taskTextView},
-                0
-        );
-
-        this.setListAdapter(listAdapter);
+//        String[] columns = new String[] { "TASK", "_ID"};
+//
+//        MatrixCursor matrixCursor= new MatrixCursor(columns);
+//        startManagingCursor(matrixCursor);
+//
+//        matrixCursor.addRow(new Object[]{"Item A", "1"});
+//        matrixCursor.addRow(new Object[]{"Item B", "2"});
+//
+//        listAdapter = new SimpleCursorAdapter(
+//                this,
+//                R.layout.task_view,
+//                matrixCursor,
+//                new String[] { "TASK" },
+//                new int[]{R.id.taskTextView},
+//                0
+//        );
+//
+//        this.setListAdapter(listAdapter);
     }
 
     public void onDoneButtonClick(View view) {
@@ -233,12 +181,11 @@ public class HomePage extends ListActivity {
 
     public void enterList(View v) {
 
-//        Intent i=new Intent();
-//        i.setClass(this,List_Screen.class);
-//        startActivity(i);
+        Intent i=new Intent();
+        i.setClass(this,ListItemActivity.class);
+        startActivity(i);
 
     }
 
 
 }
-
