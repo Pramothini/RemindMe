@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
 
-    <TimePicker
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/timePicker" />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello" />
+    <Button
+        android:id="@+id/startSetDialog"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Set Target Time"/>
+
+    <TextView
+        android:id="@+id/alarmprompt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout><!-- From: file:/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/layout/controller_settime.xml -->

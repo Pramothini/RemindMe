@@ -52,13 +52,14 @@ import java.util.LinkedList;
 
 
 import entities.Notifications;
+import relic.remindme.QRscanner.QRScanner_screen;
 import relic.remindme.push_Notifications.Notification_Time;
 import relic.remindme.push_Notifications.NotifyMessage;
 
 
-public class NotificationSettings extends Activity{
+public class NotificationSettings extends Activity {
 
-    //new
+   /* //new
     private TextView tvDisplayDate;
     private DatePicker dpResult;
     private Button btnChangeDate;
@@ -138,6 +139,12 @@ public class NotificationSettings extends Activity{
 
             intentArray.add(pendingIntent);
         }
+
+        Intent k =new Intent();
+        k.setClass(this, SetTime.class);
+    //    k.putExtra("lisname",listname);
+        startActivity(k);
+
     }
 
     public void showNotification() {
@@ -176,11 +183,13 @@ public class NotificationSettings extends Activity{
         month = c.get(Calendar.MONTH);
         day = c.get(Calendar.DAY_OF_MONTH);
 
+        */
+
       /*  hour = c.get(Calendar.HOUR_OF_DAY);
         minute = c.get(Calendar.MINUTE); */
 
-        // set current date into textview
-        tvDisplayDate.setText(new StringBuilder()
+    // set current date into textview
+     /*   tvDisplayDate.setText(new StringBuilder()
                 // Month is 0 based, just add 1
                 .append(month + 1).append("-").append(day).append("-")
                 .append(year).append(" "));
@@ -195,6 +204,8 @@ public class NotificationSettings extends Activity{
 
     public void addListenerOnButton() {
 
+    */
+
       /*  btnChangeTime = (Button) findViewById(R.id.btnChangeTime);
 
         btnChangeTime.setOnClickListener(new View.OnClickListener() {
@@ -204,7 +215,7 @@ public class NotificationSettings extends Activity{
             }
         });*/
 
-        btnChangeDate = (Button) findViewById(R.id.btnChangeDate);
+     /*   btnChangeDate = (Button) findViewById(R.id.btnChangeDate);
 
         btnChangeDate.setOnClickListener(new View.OnClickListener() {
 
@@ -344,6 +355,92 @@ public class NotificationSettings extends Activity{
             //note.number=2;
             mgr.notify(NOTIFY_ME_ID, note);
         }
+
+    }
+}
+*/
+
+    TimePicker myTimePicker;
+    Button buttonstartSetDialog;
+    TextView textAlarmPrompt;
+
+    TimePickerDialog timePickerDialog;
+
+    final static int RQS_1 = 1;
+
+    /**
+     * Called when the activity is first created.
+     */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.controller_settime);
+
+        textAlarmPrompt = (TextView) findViewById(R.id.alarmprompt);
+
+        buttonstartSetDialog = (Button) findViewById(R.id.startSetDialog);
+        buttonstartSetDialog.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                textAlarmPrompt.setText("");
+                openTimePickerDialog(false);
+
+            }
+        });
+
+    }
+
+
+    private void openTimePickerDialog(boolean is24r) {
+        Calendar calendar = Calendar.getInstance();
+
+        timePickerDialog = new TimePickerDialog(
+                NotificationSettings.this,
+                onTimeSetListener,
+                calendar.get(Calendar.HOUR_OF_DAY),
+                calendar.get(Calendar.MINUTE),
+                is24r);
+        timePickerDialog.setTitle("Set Alarm Time");
+
+        timePickerDialog.show();
+
+    }
+
+    TimePickerDialog.OnTimeSetListener onTimeSetListener
+            = new TimePickerDialog.OnTimeSetListener() {
+
+        @Override
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+
+            Calendar calNow = Calendar.getInstance();
+            Calendar calSet = (Calendar) calNow.clone();
+
+            calSet.set(Calendar.HOUR_OF_DAY, hourOfDay);
+            calSet.set(Calendar.MINUTE, minute);
+            calSet.set(Calendar.SECOND, 0);
+            calSet.set(Calendar.MILLISECOND, 0);
+
+            if (calSet.compareTo(calNow) <= 0) {
+                //Today Set time passed, count to tomorrow
+                calSet.add(Calendar.DATE, 1);
+            }
+
+            setAlarm(calSet);
+        }
+    };
+
+    private void setAlarm(Calendar targetCal) {
+
+        textAlarmPrompt.setText(
+                "\n\n***\n"
+                        + "Alarm is set@ " + targetCal.getTime() + "\n"
+                        + "***\n");
+
+        Intent intent = new Intent(getBaseContext(), AlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getBaseContext(), RQS_1, intent, 0);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, targetCal.getTimeInMillis(), pendingIntent);
 
     }
 }
