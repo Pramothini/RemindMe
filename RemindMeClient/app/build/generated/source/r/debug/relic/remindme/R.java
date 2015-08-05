@@ -1744,6 +1744,7 @@ containing a value of this type.
         public static final int menu_notification__screen=0x7f0d0004;
         public static final int menu_notification_settings=0x7f0d0005;
         public static final int menu_qrscanner__screen=0x7f0d0006;
+        public static final int menu_qrscanner_screen=0x7f0d0007;
     }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;
@@ -1797,8 +1798,9 @@ containing a value of this type.
         public static final int title_activity_notification__screen=0x7f06002f;
         public static final int title_activity_notification_settings=0x7f06001f;
         public static final int title_activity_qrscanner__screen=0x7f060030;
+        public static final int title_activity_qrscanner_screen=0x7f060031;
         public static final int trash=0x7f060020;
-        public static final int txtEmpty=0x7f060031;
+        public static final int txtEmpty=0x7f060032;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f080075;

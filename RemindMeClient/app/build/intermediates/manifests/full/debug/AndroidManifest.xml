@@ -55,6 +55,10 @@
             android:name="relic.remindme.RecordAlertSound"
             android:theme="@style/AppTheme.CustomTheme" >
         </activity>
+        <activity
+            android:name="relic.remindme.QRscanner.QRScanner_screen"
+            android:label="@string/title_activity_qrscanner_screen" >
+        </activity>
     </application>
 
 </manifest>

@@ -30,6 +30,7 @@ import adapter.ListLab;
 import controller.DefaultListReader;
 import controller.DefaultSocketClient;
 import entities.List_entity;
+import relic.remindme.QRscanner.QRScanner_screen;
 
 
 /**
@@ -152,6 +153,17 @@ public class ListItemActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list__screen);
+
+        EditText edit = (EditText) findViewById(R.id.txtItem);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null)
+        {
+            String QR_listitem = extras.getString("QR_item");
+            Toast.makeText(this,"added item:" + QR_listitem, Toast.LENGTH_LONG).show();
+            edit.setText(edit.getText()+QR_listitem);
+
+        }
+
         /** Reference to the add button of the layout main.xml */
         Button btn = (Button) findViewById(R.id.btnAdd);
 
@@ -159,11 +171,6 @@ public class ListItemActivity extends ListActivity {
         Button btnDel = (Button) findViewById(R.id.btnDel);
 
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null)
-        {
-            String QR_listitem = extras.getString("contents");
-        }
 
 
         /** Defining the ArrayAdapter to set items to ListView */
@@ -234,9 +241,9 @@ public class ListItemActivity extends ListActivity {
 
             case R.id.action_QRScanner:
 
-//                Intent k =new Intent();
-//                k.setClass(this,QRscanner_Screen.class);
-//                startActivity(k);
+                Intent k =new Intent();
+                k.setClass(this, QRScanner_screen.class);
+                startActivity(k);
                 return true;
 
         }

@@ -16,8 +16,9 @@
             android:name=".HomePage"
             android:label="@string/app_name" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
@@ -47,6 +48,10 @@
         <activity
             android:name=".RecordAlertSound"
             android:theme="@style/AppTheme.CustomTheme" >
+        </activity>
+        <activity
+            android:name=".QRscanner.QRScanner_screen"
+            android:label="@string/title_activity_qrscanner_screen" >
         </activity>
     </application>
 
