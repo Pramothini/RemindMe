@@ -224,7 +224,6 @@ public class ListLab  {
                 do {
                     itemnames.add(c.getString(c.getColumnIndex("itemname")));
                 } while (c.moveToNext());
-
         }
         return  itemnames;
     }

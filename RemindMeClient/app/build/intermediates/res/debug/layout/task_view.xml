@@ -28,4 +28,4 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:onClick="onDoneButtonClick" />
-</RelativeLayout><!-- From: file:/Users/pramothinidk/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/layout/task_view.xml -->
+</RelativeLayout><!-- From: file:/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/layout/task_view.xml -->

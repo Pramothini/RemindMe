@@ -8,21 +8,33 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import relic.remindme.ListItemActivity;
+import relic.remindme.NotificationSettings;
 import relic.remindme.R;
 
 public class QRScanner_screen extends Activity {
+
+    /** Called when the activity is first created. */
 
     static final String ACTION_SCAN = "com.google.zxing.client.android.SCAN";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        String listname = "hello";
+        Bundle extras = getIntent().getExtras();
+        if (extras != null)
+        {
+            listname = extras.getString("lisname");
+            Log.e("App", "QR CODE Listname1 : " + listname);
+        }
+
         setContentView(R.layout.activity_qrscanner__screen);
     }
 
@@ -74,18 +86,39 @@ public class QRScanner_screen extends Activity {
                 String contents = intent.getStringExtra("SCAN_RESULT");
                 String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
 
-                Intent n =new Intent();
-                n.setClass(this, ListItemActivity.class);
-                n.putExtra("QR_item", contents);
-                startActivity(n);
-
                 Toast toast = Toast.makeText(this, "Content:" + contents + " Format:" + format, Toast.LENGTH_LONG);
                 toast.show();
 
-
-
+                Intent n = new Intent();
+                String listname = "List1";
+                Bundle extras = getIntent().getExtras();
+                if (extras != null)
+                {
+                    listname = extras.getString("lisname");
+                    Log.e("App", "QR CODE Listname2 : " + listname);
+                }
+                n.setClass(this.getApplicationContext(), ListItemActivity.class);
+                n.putExtra("QR_item", contents);
+                n.putExtra("ListName", listname);
+                startActivity(n);
             }
+        }
         }
     }
 
-}
+//                Intent n =new Intent();
+//               n.putExtra("QR_item", contents);
+//                n.setClass(this, ListItemActivity.class);
+//
+//                startActivity(n);
+//
+//                Toast toast2 = Toast.makeText(this, "Content:" + contents + " Format:" + format, Toast.LENGTH_LONG);
+//                toast2.show();
+
+
+
+
+
+
+
+

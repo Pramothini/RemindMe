@@ -57,15 +57,22 @@ public class ListItemActivity extends ListActivity {
         read = new Manage(this);
 
         EditText edit = (EditText) findViewById(R.id.txtItem);
+
+
         Bundle extras = getIntent().getExtras();
         if (extras != null)
         {
-            String QR_listitem = extras.getString("QR_item","");
-            Toast.makeText(this,"added item:" + QR_listitem, Toast.LENGTH_LONG).show();
-            edit.setText(edit.getText()+QR_listitem);
+            //
+           if(extras.getString("QR_item")!=null)
+            {
+            String QR_listitem = extras.getString("QR_item");
+            Toast.makeText(this, "added item:" + QR_listitem, Toast.LENGTH_LONG).show();
+            edit.setText(edit.getText() + QR_listitem);
+            }
+            //
             listname = extras.getString("ListName");
-
         }
+        Log.e("App", "LIST NAME: " + listname);
         list = read.getAllListItems(listname);
         /** Reference to the add button of the layout main.xml */
         Button btn = (Button) findViewById(R.id.btnAdd);
@@ -194,6 +201,7 @@ public class ListItemActivity extends ListActivity {
 
                 Intent k =new Intent();
                 k.setClass(this, QRScanner_screen.class);
+                k.putExtra("lisname",listname);
                 startActivity(k);
                 return true;
 

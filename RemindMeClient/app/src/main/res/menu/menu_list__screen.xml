@@ -1,6 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:compat="http://schemas.android.com/apk/res-auto" tools:context="com.example.TodoList.List_Screen">
+
     <item android:id="@+id/action_Notification" android:title="@string/action_Notification"
         android:orderInCategory="100" android:showAsAction="never" />
     <item android:id="@+id/action_QRScanner" android:title="@string/QRBarcodeScanner"
