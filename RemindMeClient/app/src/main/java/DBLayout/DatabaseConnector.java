@@ -139,6 +139,13 @@ public class DatabaseConnector {
     }
 
 
+    public Cursor getAllListItems(int listid){
+        open();
+        Cursor res = database.rawQuery("select * from "+List_Item+" where listid = "+listid, null);
+        return res;
+    }
+
+
     /* to insert data in Notification */
 
 //    public boolean insertNotification(Integer listid2, Integer frequency){
@@ -228,33 +235,10 @@ public class DatabaseConnector {
 //
     public void deleteList(String listname) {
         open();
-        database.delete("LIST","listname=?",new String[]{listname});
+        database.delete("LIST", "listname=?", new String[]{listname});
         close();
     }
-//
-//    /*delete records in ListItem*/
-//
-//    public Cursor deleteListItem(Integer id) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        Cursor res = db.rawQuery("delete from ListItem where (ListItem.itemid='"+id+"')",null);
-//        return res;
-//    }
-//
-//    /*find list by list name*/
-//
-//    public Cursor findListbyListName(String listname) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        Cursor res = db.rawQuery("select * from List where (List.listname='"+listname+"')", null);
-//        return  res;
-//    }
-//
-//     /*find list by list created date*/
-//
-//    public Cursor findListbyListName(Date date) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        Cursor res = db.rawQuery("select * from List where (List.created_date='"+date+"')", null);
-//        return  res;
-//    }
+
 
 
    private class DatabaseOpenHelper extends SQLiteOpenHelper {

@@ -98,6 +98,16 @@ public class ListLab  {
         return listentities;
     }
 
+    public int getListID(String listname){
+        Log.e("ListLab", "inside getListID() in list lab class .. start. value of listname" + listname);
+        boolean success = true;
+        int listitemid = 1;
+        getDb().open();
+        int listid = db.getListID(listname);
+        getDb().close();
+        return listid;
+    }
+
    public int savelistitems(String listname,ArrayList listitems){
        Log.e("ListLab","inside savelistitems() in list lab class .. start. value of listname"+listname+"value of listitems"+listitems.toString());
        boolean success = true;
@@ -107,13 +117,13 @@ public class ListLab  {
        int listid = db.getListID(listname);
        if(listid != -1) {
            for (Object itemname : listitems)
-               listitemid = (int) db.insertListItem(listid, (String) listitems.get(0));
+               listitemid = (int) db.insertListItem(listid, (String) itemname);
        }
        else {
            success = false;
        }
        db.close();
-       Log.e("ListLab", "inside savelistitems() in list lab class and value of list item id from db is  "+listitemid+".. end");
+       Log.e("ListLab", "inside savelistitems() in list lab class and value of list item id from db is  " + listitemid + ".. end");
        return listitemid;
     }
 
@@ -172,12 +182,27 @@ public class ListLab  {
         return arrlistentity;
     }
 
+
+
     public void deleteList(String name){
         getDb().open();
         db.deleteList(name);
         db.close();
     }
 
+    public ArrayList<String> getAllListItems(String listname) {
+        int listid = getListID(listname);
+        ArrayList<String> itemnames = new ArrayList<>();
+        if (listid != -1) {
+            getDb().open();
+            Cursor c = getDb().getAllListItems(listid);
+            if (c.moveToFirst())
+                do {
+                    itemnames.add(c.getString(c.getColumnIndex("itemname")));
+                } while (c.moveToNext());
 
+        }
+        return  itemnames;
+    }
 }
 

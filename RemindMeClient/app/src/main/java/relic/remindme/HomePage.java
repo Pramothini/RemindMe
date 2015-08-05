@@ -122,10 +122,9 @@ public class HomePage extends ListActivity {
             this.setListAdapter(listAdapter);
 
             Log.e("HomePage_GetList", "list names from db "+listnames.toString());
-            Toast toast = Toast.makeText(this, "all list names " + listnames.toString(), Toast.LENGTH_LONG);
-            toast.show();
-            //comment this later
-//            listnames.add("dummy");
+//            Toast toast = Toast.makeText(this, "all list names " + listnames.toString(), Toast.LENGTH_LONG);
+//            toast.show();
+
 
 //            if (mListEntity != null && mListEntity.size() > 0) {
 //                Log.e("HomePage_GetList", "mlistentity is not null and " + mListEntity.get(0) + " is the first list item");

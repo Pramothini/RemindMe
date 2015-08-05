@@ -157,6 +157,7 @@ public class ListItemActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list__screen);
 
+
         EditText edit = (EditText) findViewById(R.id.txtItem);
         Bundle extras = getIntent().getExtras();
         if (extras != null)
@@ -167,7 +168,7 @@ public class ListItemActivity extends ListActivity {
             listname = extras.getString("ListName");
 
         }
-
+        list = listLab.getAllListItems(listname);
         /** Reference to the add button of the layout main.xml */
         Button btn = (Button) findViewById(R.id.btnAdd);
 
