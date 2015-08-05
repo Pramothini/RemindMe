@@ -9,6 +9,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.Date;
 
@@ -30,9 +31,10 @@ public class DatabaseConnector {
     public static final String COL_3 = "created_date";
     public static final String COL_4 = "listname";
 
-    public static final String List_Item = "LISTITEM";
+    public static final String List_Item = "LSTITEM";
     public static final String COL_5 = "itemid";
     public static final String COL_6 = "listid";
+    public static final String COL_19 = "itemname";
 
     public static final String Notification = "NOTIFICATION";
     public static final String COL_7 = "alarm_id";
@@ -86,6 +88,19 @@ public class DatabaseConnector {
         return listid;
     }
 
+    public int getListID(String listname){
+        int id = -1;
+        open(); // open the database
+        Cursor c = database.query(List,new String[] {"id"},"listname = ?",new String[] {listname},null
+        ,null,null);
+        if(c.moveToFirst()){
+            id = c.getInt(c.getColumnIndex("id"));
+        }
+
+        close(); // close the database
+        return id;
+    }
+
 
     /*to insert data in List table*/
     public long insertList(List_entity listEntity) {
@@ -102,17 +117,25 @@ public class DatabaseConnector {
 
     /*to insert data in List Items*/
 
-    public boolean insertListItem(Integer listid) {
+    public long insertListItem(int listid, String listname) {
+        Log.e("DatabseConnector", " list item " + listname + "list id is" + listid);
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_6, listid);
+        contentValues.put(COL_19, listname);
         open(); // open the database
-        long result = database.insert(List, null, contentValues);
-        close(); // close the database
-        if (result == -1)
-            return false;
-        else
-            return true;
+        long result = database.insert(List_Item, null, contentValues);
+        close();
+        Log.e("DatabseConnector", " resullt " + result );
+        return result;
 
+//        if(result!= -1){
+//            Log.e("DatabseConnector"," saved list item "+listname);
+//            return true;
+//        }
+//        else{
+//            Log.e("DatabseConnector"," not saved list item "+listname);
+//            return false;
+//        }
     }
 
 
@@ -241,7 +264,7 @@ public class DatabaseConnector {
         public static final String COL_3 = "date";
         public static final String COL_4 = "listname";
 
-        public static final String List_Item = "LISTITEM";
+        public static final String List_Item = "LSTITEM";
         public static final String COL_5 = "itemid";
         public static final String COL_6 = "listid";
 
@@ -255,8 +278,15 @@ public class DatabaseConnector {
         @Override
         public void onCreate(SQLiteDatabase db) {
             db.execSQL("create table " + List + " (id INTEGER PRIMARY KEY AUTOINCREMENT, userid INTEGER, created_date DATETIME, listname TEXT)");
+<<<<<<< Updated upstream
             db.execSQL("create table " + List_Item + " (itemid INTEGER PRIMARY KEY AUTOINCREMENT, listid INTEGER, FOREIGN KEY (listid) REFERENCES List(id))");
 //            db.execSQL("create table " + Notification + " (alarmid INTEGER PRIMARY KEY AUTOINCREMENT, listid2 INTEGER, recdays INTEGER, FOREIGN KEY (listid2) REFERENCES List(id)");
+=======
+            db.execSQL("create table " + List_Item + " (itemid INTEGER PRIMARY KEY AUTOINCREMENT,itemname Text, listid INTEGER, FOREIGN KEY (listid) REFERENCES LIST(id))");
+
+
+//          db.execSQL("create table " + Notification + " (alarmid INTEGER PRIMARY KEY AUTOINCREMENT, listid2 INTEGER, recdays INTEGER, FOREIGN KEY (listid2) REFERENCES List(id)");
+>>>>>>> Stashed changes
 //            db.execSQL("create table " + AlarmTypeLocation + " (alarmid_location INTEGER PRIMARY KEY AUTOINCREMENT, alarmid2 INTEGER, location String, FOREIGN KEY (alarmid2) REFERENCES Notification(alarmid)");
 //            db.execSQL("create table " + AlarmTypeDate + " (alarmid_date INTEGER PRIMARY KEY AUTOINCREMENT, alarmid3 INTEGER, date Date, FOREIGN KEY (alarmid2) REFERENCES Notification(alarmid)");
 //            db.execSQL("create table " + AlarmTypeSound + " (alarmid_sound INTEGER PRIMARY KEY AUTOINCREMENT, alarmid4 INTEGER, sound String, FOREIGN KEY (alarmid2) REFERENCES Notification(alarmid)");

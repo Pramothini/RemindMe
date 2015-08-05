@@ -31,10 +31,12 @@ public class ListLab  {
 
     private static ListLab lListLab;
     private Context mAppContext;
+    DatabaseConnector db;
 
     //remember to maintain singleton instance
     public ListLab(Context appContext) {
         mAppContext = appContext;
+        db = new DatabaseConnector(mAppContext);
         mlist = new ArrayList<List_entity>();
         for (int i = 0; i < 10; i++) {
             List_entity l = new List_entity();
@@ -43,11 +45,10 @@ public class ListLab  {
 
     }
 
-
     //another private constructor
     public static ListLab get(Context c) {
         if (lListLab == null) {
-            lListLab = new ListLab(c.getApplicationContext());
+            lListLab = new ListLab(c);
         }
         return lListLab;
     }
@@ -76,12 +77,18 @@ public class ListLab  {
         this.mAppContext = mAppContext;
     }
 
+    public DatabaseConnector getDb() {
+        return db;
+    }
 
+    public void setDb(DatabaseConnector db) {
+        this.db = db;
+    }
 
     public  ArrayList<List_entity> getallLists(){
         Log.e("ListLab","inside getallLists() in list lab class.. start");
         ArrayList<List_entity> listentities = new ArrayList<List_entity>();
-        DatabaseConnector db = new DatabaseConnector(mAppContext);
+        DatabaseConnector db = getDb();
         Cursor c = db.getAllList();
         listentities = createListEntities(c);
         if(listentities != null)
@@ -91,10 +98,29 @@ public class ListLab  {
         return listentities;
     }
 
+   public int savelistitems(String listname,ArrayList listitems){
+       Log.e("ListLab","inside savelistitems() in list lab class .. start. value of listname"+listname+"value of listitems"+listitems.toString());
+       boolean success = true;
+       int listitemid = 1;
+
+       getDb().open();
+       int listid = db.getListID(listname);
+       if(listid != -1) {
+           for (Object itemname : listitems)
+               listitemid = (int) db.insertListItem(listid, (String) listitems.get(0));
+       }
+       else {
+           success = false;
+       }
+       db.close();
+       Log.e("ListLab", "inside savelistitems() in list lab class and value of list item id from db is  "+listitemid+".. end");
+       return listitemid;
+    }
+
     public int createNewList(String listname){
         int latestListId;
         List_entity list_entity = new List_entity();
-        DatabaseConnector db = new DatabaseConnector(mAppContext);
+        DatabaseConnector db = getDb();
         db.open();
         latestListId = (int)db.insertNewList(listname);
         db.close();
@@ -113,7 +139,7 @@ public class ListLab  {
         for (String item:listitems)
             listItemArrayList.add(new ListItem(item));
         List_entity list_entity = new List_entity(listName,listItemArrayList);
-        DatabaseConnector db = new DatabaseConnector(mAppContext);
+        DatabaseConnector db = getDb();
         db.open();
         latestListId = db.insertList(list_entity);
         db.close();

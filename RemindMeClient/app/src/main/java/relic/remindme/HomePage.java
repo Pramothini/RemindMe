@@ -35,7 +35,7 @@ import entities.List_entity;
  */
 public class HomePage extends ListActivity {
     private ArrayList<List_entity> mListEntity = new ArrayList<List_entity>();
-    ListLab listlab = new ListLab(this);
+    ListLab listlab = ListLab.get(this);
     private ListAdapter listAdapter;
 
     @Override
@@ -44,7 +44,7 @@ public class HomePage extends ListActivity {
         setContentView(R.layout.main);
         updateUI();
     }
-    
+
 
     //new design
     @Override
@@ -180,8 +180,10 @@ public class HomePage extends ListActivity {
     }
 
     public void enterList(View v) {
+        TextView tv = (TextView) v;
 
         Intent i=new Intent();
+        i.putExtra("ListName",tv.getText());
         i.setClass(this,ListItemActivity.class);
         startActivity(i);
 

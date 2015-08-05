@@ -3,6 +3,7 @@ package relic.remindme;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -39,14 +40,14 @@ import relic.remindme.QRscanner.QRScanner_screen;
  * Display the details of a single list and handle settings associated with a list
  */
 public class ListItemActivity extends ListActivity {
-    GridLayout grid;
-    ListLab listLab = new ListLab(this);
-
-
-//    private Socket client;
-    private PrintWriter printwriter;
-    private String message;
-    DefaultListReader dr = new DefaultListReader();
+//    GridLayout grid;
+//    ListLab listLab = new ListLab(this);
+//
+//
+////    private Socket client;
+//    private PrintWriter printwriter;
+//    private String message;
+//    DefaultListReader dr = new DefaultListReader();
 
 
 
@@ -148,6 +149,8 @@ public class ListItemActivity extends ListActivity {
 
     ArrayList list = new ArrayList();
     ArrayAdapter adapter;
+    String listname;
+    ListLab listLab = ListLab.get(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -170,7 +173,19 @@ public class ListItemActivity extends ListActivity {
         /** Reference to the delete button of the layout main.xml */
         Button btnDel = (Button) findViewById(R.id.btnDel);
 
+<<<<<<< Updated upstream
 
+=======
+        Bundle extras = getIntent().getExtras();
+        if (extras != null)
+        {
+            String QR_listitem = extras.getString("contents");
+            listname = extras.getString("ListName");
+        }
+>>>>>>> Stashed changes
+
+        Toast toast = Toast.makeText(this, "you have clicked on "+listname, Toast.LENGTH_LONG);
+        toast.show();
 
 
         /** Defining the ArrayAdapter to set items to ListView */
@@ -217,6 +232,46 @@ public class ListItemActivity extends ListActivity {
     }
 
     @Override
+    public void onBackPressed() {
+
+        int itemCount = getListView().getCount();
+//        Toast toast = Toast.makeText(this, "The total items is " + itemCount + "and the items are"+list.toString(), Toast.LENGTH_LONG);
+//        toast.show();
+
+        int listid = listLab.savelistitems(listname,list);
+//String msg = "";
+//        if(listLab.savelistitems(listname,list)) {
+//           msg = "list items are saved successfully";
+//        }
+//        else{
+//            msg = "Problem in list item save";
+//        }
+        Toast toast2 = Toast.makeText(this, "value of list item id is"+listid, Toast.LENGTH_LONG);
+        toast2.show();
+
+
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setCancelable(false);
+//        builder.setMessage("Do you want to Exit?");
+//        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                //if user pressed "yes", then he is allowed to exit from application
+//                finish();
+//            }
+//        });
+//        builder.setNegativeButton("No",new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                //if user select "No", just cancel this dialog and continue with app
+//                dialog.cancel();
+//            }
+//        });
+//        AlertDialog alert=builder.create();
+//        alert.show();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_list__screen, menu);
@@ -251,6 +306,9 @@ public class ListItemActivity extends ListActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
 
 
 }
