@@ -15,6 +15,26 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+import android.content.BroadcastReceiver;
+import android.os.SystemClock;
+import java.util.ArrayList;
+import java.util.*;
+
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.support.v4.app.NotificationCompat;
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.PowerManager;
+import android.widget.Toast;
 //import com.google.android.gms.common.ConnectionResult;
 //import com.google.android.gms.common.GooglePlayServicesUtil;
 //import com.google.android.gms.maps.CameraUpdate;
@@ -89,7 +109,42 @@ public class NotificationSettings extends Activity{
             }
         });
 
-        compareDateTime(day, month, year, hour, minute);
+        showNotification();
+        //compareDateTime(day, month, year, hour, minute);
+
+        // context variable contains your `Context`
+        Context c = getApplicationContext();
+        AlarmManager mgrAlarm = (AlarmManager) c.getSystemService(ALARM_SERVICE);
+        ArrayList<PendingIntent> intentArray = new ArrayList<PendingIntent>();
+
+        for(i = 0; i < 10; ++i)
+        {
+            Intent intent = new Intent(c, NotificationSettings.class);
+            // Loop counter `i` is used as a `requestCode`
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(c, i, intent, 0);
+            // Single alarms in 1, 2, ..., 10 minutes (in `i` minutes)
+            mgrAlarm.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                    SystemClock.elapsedRealtime() + 60000 * i,
+                    pendingIntent);
+
+            intentArray.add(pendingIntent);
+        }
+    }
+
+    public void showNotification() {
+        PendingIntent pi = PendingIntent.getActivity(this, 0, new Intent(this, NotificationSettings.class), 0);
+        Resources r = getResources();
+        Notification notification = new NotificationCompat.Builder(this)
+                .setTicker("Hello")
+                .setSmallIcon(android.R.drawable.ic_menu_report_image)
+                .setContentTitle("Hi")
+                .setContentText("Hey")
+                .setContentIntent(pi)
+                .setAutoCancel(true)
+                .build();
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.notify(0, notification);
     }
 
     // display current date
