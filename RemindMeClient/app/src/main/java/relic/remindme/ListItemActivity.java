@@ -27,7 +27,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 
-import adapter.ListLab;
+import adapter.*;
 import controller.DefaultListReader;
 import controller.DefaultSocketClient;
 import entities.List_entity;
@@ -40,123 +40,21 @@ import relic.remindme.QRscanner.QRScanner_screen;
  * Display the details of a single list and handle settings associated with a list
  */
 public class ListItemActivity extends ListActivity {
-//    GridLayout grid;
-//    ListLab listLab = new ListLab(this);
-//
-//
-////    private Socket client;
-//    private PrintWriter printwriter;
-//    private String message;
-//    DefaultListReader dr = new DefaultListReader();
-
-
-
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//
-//        setContentView(R.layout.controller_activity_listitem);
-//        EditText listItem = (EditText) findViewById(R.id.listItem);
-//        grid = (GridLayout) findViewById(R.id.gridLayout);
-//        listItem.setText("New list item");
-//        setListeners(listItem);
-//    }
-
-//    public void onNotificationClick(View v){
-//
-//
-//        Intent i = new Intent(ListItemActivity.this, NotificationSettings.class);
-//        startActivity(i);
-//
-//    }
-//
-//    public void onHomeClick(View v){
-//        String listname = "";
-//        ArrayList<String> listitems = new ArrayList<>();
-//        String msg = "";
-//        int listid;
-//        Log.e("pink","inside onHomeClick ");
-//        AlertDialog.Builder builder =
-//                new AlertDialog.Builder(ListItemActivity.this);
-//
-//        // set dialog title & message, and provide Button to dismiss
-//        builder.setTitle("Number of list items");
-//
-//        for (int i = 1; i < grid.getChildCount(); i++) {
-//            EditText  et = (EditText) grid.getChildAt(i);
-//            if(i==1)
-//                listname = et.getText()+"";
-//            else
-//                listitems.add(et.getText() + "");
-//        }
-//        msg = "no of list items" + (grid.getChildCount() - 2) + " list items are: "+listitems.toString()
-//                +"list name = "+listname;
-//
-//        listid = (int) listLab.createList(listname,listitems);
-//
-//        if(listid != -1)
-//            msg += "saved success";
-//        else
-//            msg += "not success";
-//
-//        builder.setMessage(msg);
-//
-//        builder.setPositiveButton("OK", null);
-//        builder.show();
-//
-//
-//         // display the Dialog
-//        Intent i = new Intent(ListItemActivity.this, HomePage.class);
-//        startActivity(i);
-//    }
-//
-//    public void onQRClick(View v){
-//        Toast.makeText(ListItemActivity.this, "QR sensor will be implemented in construction phase", Toast.LENGTH_SHORT).show();
-//    }
-//
-//    public void onTrashClick(View v){
-//        Toast.makeText(ListItemActivity.this, "This list will be deleted. This will be implemented in construction phase", Toast.LENGTH_SHORT).show();
-//    }
-//
-//    public void onShare(View v){
-//        Toast.makeText(ListItemActivity.this, "Share will utilize the contacts DB and will be implemented in construction phase", Toast.LENGTH_SHORT).show();
-//    }
-//
-//    void setListeners(EditText listitem){
-//
-//        listitem.setOnKeyListener(new View.OnKeyListener() {
-//            public boolean onKey(View v, int keyCode, KeyEvent event) {
-//                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
-//                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
-//                    EditText newListItem = new EditText(ListItemActivity.this);
-//                    newListItem.setText("New list item");
-//                    grid.addView(newListItem);
-//                    setListeners(newListItem);
-//                    return true;
-//                }
-//                return false;
-//            }
-//        });
-//    }
-
-
-
-
-
-    //new design
-
-
-
     ArrayList list = new ArrayList();
     ArrayAdapter adapter;
     String listname;
-    ListLab listLab = ListLab.get(this);
+//    ListLab listLab = ListLab.get(this);
+    adapter.Readable read;
+
+    Updatable update;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list__screen);
 
+        update = new Manage(this);
+        read = new Manage(this);
 
         EditText edit = (EditText) findViewById(R.id.txtItem);
         Bundle extras = getIntent().getExtras();
@@ -168,7 +66,7 @@ public class ListItemActivity extends ListActivity {
             listname = extras.getString("ListName");
 
         }
-        list = listLab.getAllListItems(listname);
+        list = read.getAllListItems(listname);
         /** Reference to the add button of the layout main.xml */
         Button btn = (Button) findViewById(R.id.btnAdd);
 
@@ -230,7 +128,7 @@ public class ListItemActivity extends ListActivity {
 //        Toast toast = Toast.makeText(this, "The total items is " + itemCount + "and the items are"+list.toString(), Toast.LENGTH_LONG);
 //        toast.show();
 
-        int listid = listLab.savelistitems(listname,list);
+        int listid = update.savelistitems(listname,list);
 //String msg = "";
 //        if(listLab.savelistitems(listname,list)) {
 //           msg = "list items are saved successfully";

@@ -29,14 +29,19 @@ public class ListLab  {
     private ArrayList<List_entity> mlist;
 
 
-    private static ListLab lListLab;
+    public static ListLab lListLab;
     private Context mAppContext;
-    DatabaseConnector db;
+    static DatabaseConnector db;
 
+    ListLab(){
+
+    }
     //remember to maintain singleton instance
     public ListLab(Context appContext) {
         mAppContext = appContext;
-        db = new DatabaseConnector(mAppContext);
+        if(db == null) {
+            db = new DatabaseConnector(mAppContext);
+        }
 //        mlist = new ArrayList<List_entity>();
 //        for (int i = 0; i < 10; i++) {
 //            List_entity l = new List_entity();

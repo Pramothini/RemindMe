@@ -32,7 +32,7 @@ import entities.List_entity;
 public class HomePage extends ListActivity {
 
     private ArrayList<List_entity> mListEntity = new ArrayList<List_entity>();
-    ListLab listlab = ListLab.get(this);
+//    ListLab listlab = ListLab.get(this);
     private ListAdapter listAdapter;
     private String android_id;
     Deletable del;
@@ -104,9 +104,9 @@ public class HomePage extends ListActivity {
 
     private void updateUI() {
 //        ListLab listlab = ListLab.getlListLab();
-        Log.e("HomePage_GetList", "printing listlab object"+listlab);
-//        if(listlab != null) {
-            Log.e("HomePage_GetList", "printing listlab object is not null "+listlab);
+//        Log.e("HomePage_GetList", "printing listlab object"+listlab);
+////        if(listlab != null) {
+//            Log.e("HomePage_GetList", "printing listlab object is not null "+listlab);
             mListEntity = read.getallLists();
             String[] columns = new String[] { "TASK", "_ID"};
 
