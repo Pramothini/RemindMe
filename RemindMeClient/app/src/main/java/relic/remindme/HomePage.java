@@ -166,16 +166,7 @@ public class HomePage extends ListActivity {
         View v = (View) view.getParent();
         TextView taskTextView = (TextView) v.findViewById(R.id.taskTextView);
         String task = taskTextView.getText().toString();
-
-//        String sql = String.format("DELETE FROM %s WHERE %s = '%s'",
-//                TaskContract.TABLE,
-//                TaskContract.Columns.TASK,
-//                task);
-
-
-//        helper = new TaskDBHelper(MainActivity.this);
-//        SQLiteDatabase sqlDB = helper.getWritableDatabase();
-//        sqlDB.execSQL(sql);
+        listlab.deleteList(task);
         updateUI();
     }
 

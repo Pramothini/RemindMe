@@ -226,11 +226,11 @@ public class DatabaseConnector {
 //
 //    /*delete records in List */
 //
-//    public Cursor deleteList(Integer id) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        Cursor res = db.rawQuery("delete from List where (List.id='"+id+"')",null);
-//        return res;
-//    }
+    public void deleteList(String listname) {
+        open();
+        database.delete("LIST","listname=?",new String[]{listname});
+        close();
+    }
 //
 //    /*delete records in ListItem*/
 //

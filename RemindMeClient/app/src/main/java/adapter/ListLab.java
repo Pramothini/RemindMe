@@ -168,8 +168,14 @@ public class ListLab  {
 //            arrlistentity.add(le);
 //
 //        }
-        Log.e("ListLab","inside createListEntities .. end and the first item in arrlistentity is ");
+        Log.e("ListLab", "inside createListEntities .. end and the first item in arrlistentity is ");
         return arrlistentity;
+    }
+
+    public void deleteList(String name){
+        getDb().open();
+        db.deleteList(name);
+        db.close();
     }
 
 

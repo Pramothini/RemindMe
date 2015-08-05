@@ -240,6 +240,11 @@ public class ListItemActivity extends ListActivity {
         Toast toast2 = Toast.makeText(this, "value of list item id is"+listid, Toast.LENGTH_LONG);
         toast2.show();
 
+        Intent k =new Intent();
+        k.setClass(this, HomePage.class);
+        startActivity(k);
+
+
 
 //        AlertDialog.Builder builder = new AlertDialog.Builder(this);
 //        builder.setCancelable(false);
