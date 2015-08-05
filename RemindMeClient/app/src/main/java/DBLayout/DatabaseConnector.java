@@ -1,6 +1,6 @@
 // DatabaseConnector.java
 // Provides easy connection and creation of UserContacts database.
-package DBLayout;
+package dBLayout;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -11,11 +11,8 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import java.util.Date;
-
 import entities.ListItem;
 import entities.List_entity;
-import entities.Notifications;
 
 public class DatabaseConnector {
     private SQLiteDatabase database; // database object

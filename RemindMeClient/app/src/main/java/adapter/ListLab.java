@@ -3,20 +3,12 @@ package adapter;
 import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
-import android.widget.TextView;
 
-import java.io.IOException;
-import java.io.Serializable;
-import java.net.Socket;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.List;
 
-import DBLayout.DatabaseConnector;
-import controller.DefaultSocketClient;
+import dBLayout.DatabaseConnector;
 import entities.ListItem;
 import entities.List_entity;
-import relic.remindme.R;
 
 
 /**
@@ -130,7 +122,7 @@ public class ListLab  {
      * @return
      */
    public int savelistitems(String listname,ArrayList listitems){
-       Log.e("ListLab","inside savelistitems() in list lab class .. start. value of listname"+listname+"value of listitems"+listitems.toString());
+       Log.e("ListLab", "inside savelistitems() in list lab class .. start. value of listname" + listname + "value of listitems" + listitems.toString());
        boolean success = true;
        int listitemid = 1;
 
@@ -246,5 +238,24 @@ public class ListLab  {
         getDb().deleteListItems(listid);
         getDb().close();
     }
+
+    /**
+     * checks whether a lsit name already exists before creating the list
+     * If it already exists then, user will not be allowed to create another
+     * list with the same name
+     * @param listname
+     * @return
+     */
+    public boolean checkIfListNameAlreadyExists(String listname){
+        ArrayList<List_entity> listentities = getallLists();
+        for(List_entity l : listentities) {
+            if (l.getListName().equals(listname))
+                return true;
+        }
+        return false;
+
+    }
+
+
 }
 
