@@ -2,16 +2,20 @@
 <items version="2" >
 
     <item
-        jar="/Users/pramothinidk/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
+        jar="/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-a236acd933035dddf512f818642ba419dc3a6b79.jar" />
+    </item>
+    <item
+        jar="/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="/Users/pramothinidk/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/pre-dexed/debug/classes-3528c6518e4b7738ddb648cec36497012da67bb7.jar" />
+        <dex dex="/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/pre-dexed/debug/classes-caa098bb8788917e34da8e6fbae3a2e2dc2fb667.jar" />
     </item>
     <item
-<<<<<<< Updated upstream
-        jar="/Users/pramothinidk/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
-=======
         jar="/Users/srish/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -19,29 +23,11 @@
         <dex dex="/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-46ab9654467546368b51536c043beb2bad8f61fd.jar" />
     </item>
     <item
-        jar="/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
->>>>>>> Stashed changes
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="/Users/pramothinidk/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-83a80d0de6d08afa9740123f214f7707649e2e5e.jar" />
-    </item>
-    <item
-        jar="/Users/pramothinidk/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jar="/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="/Users/pramothinidk/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/pre-dexed/debug/classes-aafb3a4d6d18dbe8edb9d1d59e1718c3d3bdf71e.jar" />
+        <dex dex="/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/pre-dexed/debug/classes-f61483d446c1ebff13dc573bb132f6d065458844.jar" />
     </item>
-<<<<<<< Updated upstream
-    <item
-        jar="/Users/pramothinidk/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
-        <dex dex="/Users/pramothinidk/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-23823ba143773cc5ef3a21b59a42160b35fb3284.jar" />
-    </item>
-=======
->>>>>>> Stashed changes
 
 </items>
