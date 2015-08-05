@@ -5,4 +5,4 @@
     <item android:id="@+id/action_QRScanner" android:title="@string/QRBarcodeScanner"
         android:orderInCategory="100" android:showAsAction="never" />
 </menu>
-<!-- From: file:/Users/pramothinidk/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/menu/menu_list__screen.xml -->
+<!-- From: file:/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/menu/menu_list__screen.xml -->

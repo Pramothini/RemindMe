@@ -413,7 +413,8 @@ int drawable abc_textfield_default_mtrl_alpha 0x7f020037
 int drawable abc_textfield_search_activated_mtrl_alpha 0x7f020038
 int drawable abc_textfield_search_default_mtrl_alpha 0x7f020039
 int drawable abc_textfield_search_material 0x7f02003a
-int drawable notification_template_icon_bg 0x7f02003b
+int drawable notification_template_icon_bg 0x7f02003c
+int drawable stat_notify_chat 0x7f02003b
 int id QRBtn 0x7f0c006b
 int id action0 0x7f0c007d
 int id action_Notification 0x7f0c008e
@@ -620,8 +621,9 @@ int menu menu_list__screen 0x7f0d0002
 int menu menu_main 0x7f0d0003
 int menu menu_notification__screen 0x7f0d0004
 int menu menu_notification_settings 0x7f0d0005
-int menu menu_qrscanner__screen 0x7f0d0006
-int menu menu_qrscanner_screen 0x7f0d0007
+int menu menu_notify_message 0x7f0d0006
+int menu menu_qrscanner__screen 0x7f0d0007
+int menu menu_qrscanner_screen 0x7f0d0008
 int mipmap ic_launcher 0x7f030000
 int string Delete 0x7f060021
 int string EnterItem 0x7f060022
@@ -670,10 +672,11 @@ int string title_activity_list__screen 0x7f06002d
 int string title_activity_main 0x7f06002e
 int string title_activity_notification__screen 0x7f06002f
 int string title_activity_notification_settings 0x7f06001f
-int string title_activity_qrscanner__screen 0x7f060030
-int string title_activity_qrscanner_screen 0x7f060031
+int string title_activity_notify_message 0x7f060030
+int string title_activity_qrscanner__screen 0x7f060031
+int string title_activity_qrscanner_screen 0x7f060032
 int string trash 0x7f060020
-int string txtEmpty 0x7f060032
+int string txtEmpty 0x7f060033
 int style AlertDialog_AppCompat 0x7f080075
 int style AlertDialog_AppCompat_Light 0x7f080076
 int style Animation_AppCompat_Dialog 0x7f080077

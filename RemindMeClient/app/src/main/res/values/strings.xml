@@ -36,5 +36,6 @@
     <string name="title_activity_qrscanner__screen">QRscanner_Screen</string>
     <string name="QRBarcodeScanner">QR/Barcode Scanner</string>
     <string name="title_activity_qrscanner_screen">QRScanner_screen</string>
+    <string name="title_activity_notify_message">NotifyMessage</string>
 
 </resources>

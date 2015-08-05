@@ -59,6 +59,10 @@
             android:name="relic.remindme.QRscanner.QRScanner_screen"
             android:label="@string/title_activity_qrscanner_screen" >
         </activity>
+        <activity
+            android:name="relic.remindme.push_Notifications.NotifyMessage"
+            android:label="@string/title_activity_notify_message" >
+        </activity>
     </application>
 
 </manifest>

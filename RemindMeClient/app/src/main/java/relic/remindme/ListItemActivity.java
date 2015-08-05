@@ -285,9 +285,9 @@ public class ListItemActivity extends ListActivity {
         {
             case R.id.action_Notification:
 
-//                Intent j =new Intent();
-//                j.setClass(this,Notification_Screen.class);
-//                startActivity(j);
+                Intent j =new Intent();
+                j.setClass(this,NotificationSettings.class);
+                startActivity(j);
                 return true;
 
 

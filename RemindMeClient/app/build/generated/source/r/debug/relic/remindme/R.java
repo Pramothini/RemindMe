@@ -1528,7 +1528,8 @@ containing a value of this type.
         public static final int abc_textfield_search_activated_mtrl_alpha=0x7f020038;
         public static final int abc_textfield_search_default_mtrl_alpha=0x7f020039;
         public static final int abc_textfield_search_material=0x7f02003a;
-        public static final int notification_template_icon_bg=0x7f02003b;
+        public static final int notification_template_icon_bg=0x7f02003c;
+        public static final int stat_notify_chat=0x7f02003b;
     }
     public static final class id {
         public static final int QRBtn=0x7f0c006b;
@@ -1743,8 +1744,9 @@ containing a value of this type.
         public static final int menu_main=0x7f0d0003;
         public static final int menu_notification__screen=0x7f0d0004;
         public static final int menu_notification_settings=0x7f0d0005;
-        public static final int menu_qrscanner__screen=0x7f0d0006;
-        public static final int menu_qrscanner_screen=0x7f0d0007;
+        public static final int menu_notify_message=0x7f0d0006;
+        public static final int menu_qrscanner__screen=0x7f0d0007;
+        public static final int menu_qrscanner_screen=0x7f0d0008;
     }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;
@@ -1797,10 +1799,11 @@ containing a value of this type.
         public static final int title_activity_main=0x7f06002e;
         public static final int title_activity_notification__screen=0x7f06002f;
         public static final int title_activity_notification_settings=0x7f06001f;
-        public static final int title_activity_qrscanner__screen=0x7f060030;
-        public static final int title_activity_qrscanner_screen=0x7f060031;
+        public static final int title_activity_notify_message=0x7f060030;
+        public static final int title_activity_qrscanner__screen=0x7f060031;
+        public static final int title_activity_qrscanner_screen=0x7f060032;
         public static final int trash=0x7f060020;
-        public static final int txtEmpty=0x7f060032;
+        public static final int txtEmpty=0x7f060033;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f080075;
