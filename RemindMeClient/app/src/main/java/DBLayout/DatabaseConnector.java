@@ -239,6 +239,12 @@ public class DatabaseConnector {
         close();
     }
 
+    public void deleteListItems(int listid) {
+        open();
+        database.delete(List_Item, "listid=?", new String[]{listid+""});
+        close();
+    }
+
 
 
    private class DatabaseOpenHelper extends SQLiteOpenHelper {

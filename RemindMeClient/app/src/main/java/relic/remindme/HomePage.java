@@ -47,6 +47,12 @@ public class HomePage extends ListActivity {
     }
 
     @Override
+    public void onBackPressed() {
+
+    }
+
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_add_task:
@@ -163,7 +169,6 @@ public class HomePage extends ListActivity {
 
     public void enterList(View v) {
         TextView tv = (TextView) v;
-
         Intent i=new Intent();
         i.putExtra("ListName",tv.getText());
         i.setClass(this,ListItemActivity.class);

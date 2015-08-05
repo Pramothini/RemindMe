@@ -162,7 +162,7 @@ public class ListItemActivity extends ListActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null)
         {
-            String QR_listitem = extras.getString("QR_item");
+            String QR_listitem = extras.getString("QR_item","");
             Toast.makeText(this,"added item:" + QR_listitem, Toast.LENGTH_LONG).show();
             edit.setText(edit.getText()+QR_listitem);
             listname = extras.getString("ListName");

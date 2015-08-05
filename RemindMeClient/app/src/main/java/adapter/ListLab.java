@@ -116,6 +116,7 @@ public class ListLab  {
        getDb().open();
        int listid = db.getListID(listname);
        if(listid != -1) {
+           deleteAllListItems(listid);
            for (Object itemname : listitems)
                listitemid = (int) db.insertListItem(listid, (String) itemname);
        }
@@ -203,6 +204,12 @@ public class ListLab  {
 
         }
         return  itemnames;
+    }
+
+    void deleteAllListItems(int listid){
+        getDb().open();
+        getDb().deleteListItems(listid);
+        getDb().close();
     }
 }
 
