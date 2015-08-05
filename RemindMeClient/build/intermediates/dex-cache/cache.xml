@@ -16,18 +16,18 @@
         <dex dex="/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-a236acd933035dddf512f818642ba419dc3a6b79.jar" />
     </item>
     <item
-        jar="/Users/srish/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
-        <dex dex="/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-46ab9654467546368b51536c043beb2bad8f61fd.jar" />
-    </item>
-    <item
         jar="/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
         <dex dex="/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/pre-dexed/debug/classes-f61483d446c1ebff13dc573bb132f6d065458844.jar" />
+    </item>
+    <item
+        jar="/Users/srish/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-46ab9654467546368b51536c043beb2bad8f61fd.jar" />
     </item>
 
 </items>

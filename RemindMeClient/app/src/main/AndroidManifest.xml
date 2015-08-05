@@ -61,6 +61,12 @@
             android:name=".AlarmReceiver"
             android:label="@string/title_activity_alarm_receiver" >
         </activity>
+        <activity
+            android:name=".notifications.Notifications_MainScreen"
+            android:label="@string/title_activity_notifications__main_screen" >
+        </activity>
+        <receiver android:name=".notifications.AlarmRing" android:process=":remote" />
+
     </application>
 
 </manifest>

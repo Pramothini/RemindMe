@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="16"
         android:targetSdkVersion="22" />
 
     <uses-permission android:name="android.permission.INTERNET" >
@@ -67,6 +67,14 @@
             android:name="relic.remindme.AlarmReceiver"
             android:label="@string/title_activity_alarm_receiver" >
         </activity>
+        <activity
+            android:name="relic.remindme.notifications.Notifications_MainScreen"
+            android:label="@string/title_activity_notifications__main_screen" >
+        </activity>
+
+        <receiver
+            android:name="relic.remindme.notifications.AlarmRing"
+            android:process=":remote" />
     </application>
 
 </manifest>

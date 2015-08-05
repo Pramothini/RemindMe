@@ -32,6 +32,7 @@ import controller.DefaultListReader;
 import controller.DefaultSocketClient;
 import entities.List_entity;
 import relic.remindme.QRscanner.QRScanner_screen;
+import relic.remindme.notifications.Notifications_MainScreen;
 
 
 /**
@@ -192,7 +193,7 @@ public class ListItemActivity extends ListActivity {
 
                 Intent j =new Intent();
                 j.putExtra("lisname",listname);
-                j.setClass(this,NotificationSettings.class);
+                j.setClass(this,Notifications_MainScreen.class);
                 startActivity(j);
                 return true;
 
