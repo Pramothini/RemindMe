@@ -2,6 +2,9 @@ package entities;
 
 /**
  * Created by pramothinidk on 8/4/15.
+ * Entity of the Notifications associated to a list
+ * This object would be used to pass Notification data between the CRUD method implementation and the
+ * DB implementation
  */
 public class Notifications {
     private int year;
@@ -13,11 +16,19 @@ public class Notifications {
 
     private double latitude;
     private double longitude;
-
-
-
     private int days_recur=0;
 
+    /**
+     * parameterised constructor
+     * @param year
+     * @param month
+     * @param date
+     * @param hour
+     * @param minute
+     * @param latitude
+     * @param longitude
+     * @param days_recur
+     */
     public Notifications(int year, int month, int date, int hour, int
             minute, double latitude, double longitude, int
                                  days_recur) {
@@ -28,10 +39,10 @@ public class Notifications {
         this.minute = minute;
         this.latitude = latitude;
         this.longitude = longitude;
-
         this.days_recur = days_recur;
     }
 
+    //getters and setters
     public int getYear() {
         return year;
     }

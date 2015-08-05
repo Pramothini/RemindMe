@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.Date;
 /**
  * Created by pramothinidk on 7/18/15.
+ * Entity of the list
+ * This object would be used to pass list data between the CRUD method implementation and the
+ * DB implementation
  */
 public class List_entity implements Serializable {
 
@@ -18,21 +21,24 @@ public class List_entity implements Serializable {
 	private ArrayList<ListItem> listitems;
 	private Notifications notification;
 
+    /**
+     * constructor
+     */
 	public List_entity() {
-//		listName = "Groceries";
-//		createdDate = new Date().toString();
-//		listitems = new ArrayList<ListItem>();
-//		for (int i = 0; i < 5; i++) {
-//			ListItem li = new ListItem();
-//			listitems.add(li);
-//		}
 	}
+
+    /**
+     * Parameterised constructor
+     * @param name
+     * @param listitems
+     */
 	public List_entity(String name,ArrayList<ListItem> listitems) {
 		listName = name;
 		createdDate = new Date().toString();
 		this.listitems = listitems;
 	}
 
+    //getters and setters
 	public String getListName() {
 		return listName;
 	}
@@ -74,14 +80,13 @@ public class List_entity implements Serializable {
 	}
 
 	/*to add listitems*/
-
-	public void setListItems(ArrayList<ListItem> listitems){
+    public void setListItems(ArrayList<ListItem> listitems){
 		this.listitems=listitems;
 	}
-
-	public ArrayList<ListItem> getListItems(){
+    public ArrayList<ListItem> getListItems(){
 		return this.listitems;
 	}
+
 	public int getId() {
 		return id;
 	}

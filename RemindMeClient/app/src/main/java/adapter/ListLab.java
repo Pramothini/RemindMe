@@ -20,9 +20,8 @@ import relic.remindme.R;
 
 
 /**
- * Contains an arraylist of students
- * maintains a singleton instance
  *
+ * Implements CRUD operations for list and list items
  */
 public class ListLab  {
 
@@ -33,24 +32,25 @@ public class ListLab  {
     private Context mAppContext;
     static DatabaseConnector db;
 
+    /**
+     * Constructor
+     */
     ListLab(){
 
     }
-    //remember to maintain singleton instance
+
+    /**
+     * parameterised constructor
+     * used to mainatain a single ton instance
+     * @param appContext
+     */
     public ListLab(Context appContext) {
         mAppContext = appContext;
         if(db == null) {
             db = new DatabaseConnector(mAppContext);
         }
-//        mlist = new ArrayList<List_entity>();
-//        for (int i = 0; i < 10; i++) {
-//            List_entity l = new List_entity();
-//            mlist.add(l);
-//        }
-
     }
 
-    //another private constructor
     public static ListLab get(Context c) {
         if (lListLab == null) {
             lListLab = new ListLab(c);
@@ -58,6 +58,7 @@ public class ListLab  {
         return lListLab;
     }
 
+    //getters and setters
     public ArrayList<List_entity> getMlist() {
         return mlist;
     }
@@ -90,8 +91,12 @@ public class ListLab  {
         this.db = db;
     }
 
+    /**
+     * Used to get all the list items
+     * @return arraylist of all list items
+     */
     public  ArrayList<List_entity> getallLists(){
-        Log.e("ListLab","inside getallLists() in list lab class.. start");
+//        Log.e("ListLab","inside getallLists() in list lab class.. start");
         ArrayList<List_entity> listentities = new ArrayList<List_entity>();
         DatabaseConnector db = getDb();
         Cursor c = db.getAllList();
@@ -103,6 +108,11 @@ public class ListLab  {
         return listentities;
     }
 
+    /**
+     * Used to get the ID of a List based on the name of the list
+     * @param listname
+     * @return id of the list
+     */
     public int getListID(String listname){
         Log.e("ListLab", "inside getListID() in list lab class .. start. value of listname" + listname);
         boolean success = true;
@@ -113,6 +123,12 @@ public class ListLab  {
         return listid;
     }
 
+    /**
+     * used to save the list items associated with a list
+     * @param listname
+     * @param listitems
+     * @return
+     */
    public int savelistitems(String listname,ArrayList listitems){
        Log.e("ListLab","inside savelistitems() in list lab class .. start. value of listname"+listname+"value of listitems"+listitems.toString());
        boolean success = true;
@@ -133,6 +149,12 @@ public class ListLab  {
        return listitemid;
     }
 
+    /**
+     * used to create a new list
+     * @param listname - name of the list
+     * @param android_id - user id that is unique for each device
+     * @return
+     */
     public int createNewList(String listname,String android_id){
         int latestListId;
         List_entity list_entity = new List_entity();
@@ -162,6 +184,11 @@ public class ListLab  {
         return latestListId;
     }
 
+    /**
+     * Used to create list entity objects from the Cursor object
+     * @param c - Cursor from DB
+     * @return - arraylist of list entity
+     */
     public ArrayList<List_entity> createListEntities(Cursor c){
         Log.e("ListLab","inside createListEntities .. start");
         ArrayList<List_entity> arrlistentity = new ArrayList<List_entity>();
@@ -175,27 +202,26 @@ public class ListLab  {
 
             }while(c.moveToNext());
         }
-//        else{
-//            Log.e("ListLab","inside createListEntities and Cursor does not contain any objects..");
-//            List_entity le = new List_entity();
-//            le.setId(123);
-//            le.setListName("dummy");
-//            le.setCreatedDate("08/02/1015");
-//            arrlistentity.add(le);
-//
-//        }
         Log.e("ListLab", "inside createListEntities .. end and the first item in arrlistentity is ");
         return arrlistentity;
     }
 
 
-
+    /**
+     * Used to delete a list
+     * @param name of the list that has to be deleted
+     */
     public void deleteList(String name){
         getDb().open();
         db.deleteList(name);
         db.close();
     }
 
+    /**
+     * Used to get all the list items for a list name
+     * @param listname
+     * @return
+     */
     public ArrayList<String> getAllListItems(String listname) {
         int listid = getListID(listname);
         ArrayList<String> itemnames = new ArrayList<>();
@@ -211,6 +237,10 @@ public class ListLab  {
         return  itemnames;
     }
 
+    /**
+     * Used to delete all list items associated with a list
+     * @param listid
+     */
     public void deleteAllListItems(int listid){
         getDb().open();
         getDb().deleteListItems(listid);

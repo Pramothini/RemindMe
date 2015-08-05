@@ -197,6 +197,14 @@ public class ListItemActivity extends ListActivity {
                 startActivity(k);
                 return true;
 
+            case R.id.action_Share:
+                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                String shareBody = list.toString();
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, listname);
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(sharingIntent, "Share via"));
+
         }
 
 

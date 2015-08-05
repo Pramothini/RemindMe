@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import entities.List_entity;
 
 /**
- * Created by pramothinidk on 8/5/15.
+ * Created by pramothinidk on 8/5/15
+ * API to read list and list item values from the database
  */
 public interface Readable {
     public ArrayList<String> getAllListItems(String listname);
