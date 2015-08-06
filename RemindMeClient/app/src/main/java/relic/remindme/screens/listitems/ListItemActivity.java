@@ -22,6 +22,7 @@ import relic.remindme.R;
 import relic.remindme.screens.QRscanner.QRScanner_screen;
 import relic.remindme.screens.homepage.HomePage;
 import relic.remindme.screens.notifications.Notifications_MainScreen;
+import relic.remindme.screens.speechtotext.UserSpeechToText;
 
 
 /**
@@ -45,7 +46,7 @@ public class ListItemActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.control_listitemactivity);
+        setContentView(R.layout.control_list_item_activity);
         setTitle("Remind Me");
 
         // initializing the API
@@ -64,16 +65,20 @@ public class ListItemActivity extends ListActivity {
             Toast.makeText(this, "added item:" + QR_listitem, Toast.LENGTH_LONG).show();
             edit.setText(edit.getText() + QR_listitem);
             }
+            if(extras.getString("SpokenWord")!=null)
+            {
+                String speaking = extras.getString("SpokenWord");
+                edit.setText(edit.getText() + speaking);
+
+            }
+
             listname = extras.getString("ListName");
         }
         Log.e("App", "LIST NAME: " + listname);
         list = read.getAllListItems(listname);
         Button btn = (Button) findViewById(R.id.btnAdd);
         Button btnDel = (Button) findViewById(R.id.btnDel);
-//        Toast toast = Toast.makeText(this, "you have clicked on "+listname, Toast.LENGTH_LONG);
-//        toast.show();
-
-
+//
         /** Defining the ArrayAdapter to set items to ListView */
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, list);
 
@@ -195,6 +200,18 @@ public class ListItemActivity extends ListActivity {
                 sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, listname);
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
                 startActivity(Intent.createChooser(sharingIntent, "Share via"));
+                return true;
+
+            case R.id.action_Speak:
+
+                Intent z =new Intent();
+                z.setClass(this, UserSpeechToText.class);
+                z.putExtra("lisname", listname);
+
+                startActivity(z);
+                return true;
+
+
 
         }
 

@@ -44,4 +44,4 @@
         android:layout_alignParentBottom="true"
         android:text="@string/lblBtnDel" />
 </RelativeLayout>
-<!-- From: file:/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/layout/control_listitemactivity.xml -->
+<!-- From: file:/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/layout/control_list_item_activity.xml -->

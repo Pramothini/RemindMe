@@ -30,10 +30,6 @@
             android:label="@string/title_activity_qrscanner_screen" >
         </activity>
         <activity
-            android:name=".push_Notifications.NotifyMessage"
-            android:label="@string/title_activity_notify_message" >
-        </activity>
-        <activity
             android:name=".screens.notifications.Notifications_MainScreen"
             android:label="@string/title_activity_notifications__main_screen" >
         </activity>
@@ -49,6 +45,10 @@
         <activity
             android:name=".screens.notifications.GenerateNotifications"
             android:label="@string/title_activity_generate" >
+        </activity>
+        <activity
+            android:name=".screens.speechtotext.UserSpeechToText"
+            android:label="@string/title_activity_user_speech_to_text" >
         </activity>
     </application>
 

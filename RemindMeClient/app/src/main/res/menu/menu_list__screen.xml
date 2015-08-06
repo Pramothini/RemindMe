@@ -9,4 +9,9 @@
         android:orderInCategory="100" android:showAsAction="never" />
     <item android:id="@+id/action_Share" android:title="@string/share"
         android:orderInCategory="100" android:showAsAction="never" />
+    <item android:id="@+id/action_Speak" android:title="@string/Userspeak"
+        android:orderInCategory="100" android:showAsAction="never" />
+
+
+
 </menu>

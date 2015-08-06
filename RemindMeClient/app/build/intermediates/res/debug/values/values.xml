@@ -176,7 +176,9 @@
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <!-- From: file:/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/values/ids.xml -->
     <eat-comment/>
+    <item name="action_MockOption" type="id">mock</item>
     <item name="action_Share" type="id">share</item>
+    <item name="action_Speak" type="id">Speak Up</item>
     <!-- From: file:/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <item name="action_bar_activity_content" type="id"/>
@@ -199,6 +201,7 @@
     <string name="EnterItem">Enter item</string>
     <string name="QRBarcodeScanner">QR/Barcode Scanner</string>
     <string name="SelectType">Select a Type of Notification</string>
+    <string name="Userspeak">Speak</string>
     <!-- From: file:/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <string name="abc_action_bar_home_description">Navigate home</string>
@@ -228,6 +231,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="lblBtnAdd">Add Item</string>
     <string name="lblBtnDel">Delete Item</string>
+    <string name="mock">Mock Trying</string>
     <string name="share">Share</string>
     <!-- From: file:/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
@@ -244,6 +248,8 @@
     <string name="title_activity_notify_message">NotifyMessage</string>
     <string name="title_activity_qrscanner__screen">QRscanner_Screen</string>
     <string name="title_activity_qrscanner_screen">QRScanner_screen</string>
+    <string name="title_activity_trial_class">TrialClass</string>
+    <string name="title_activity_user_speech_to_text">UserSpeechToText</string>
     <string name="txtEmpty">List is empty</string>
     <!-- From: file:/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
