@@ -15,7 +15,7 @@ import exceptions.ExceptionManager;
 /**
  * Implements CRUD operations for list and list items
  */
-public class ListLab  {
+public abstract class ListLab  {
 
     private ArrayList<List_entity> mlist;
 
@@ -43,12 +43,12 @@ public class ListLab  {
         }
     }
 
-    public static ListLab get(Context c) {
-        if (lListLab == null) {
-            lListLab = new ListLab(c);
-        }
-        return lListLab;
-    }
+//    public static ListLab get(Context c) {
+//        if (lListLab == null) {
+//            lListLab = new ListLab(c);
+//        }
+//        return lListLab;
+//    }
 
     //getters and setters
     public ArrayList<List_entity> getMlist() {

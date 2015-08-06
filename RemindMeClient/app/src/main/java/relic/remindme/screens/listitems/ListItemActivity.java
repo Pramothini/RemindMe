@@ -218,7 +218,6 @@ public class ListItemActivity extends ListActivity {
 
         }
 
-
         return super.onOptionsItemSelected(item);
     }
 
