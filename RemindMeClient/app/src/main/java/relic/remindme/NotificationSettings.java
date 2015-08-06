@@ -437,7 +437,7 @@ public class NotificationSettings extends Activity {
                         + "Alarm is set@ " + targetCal.getTime() + "\n"
                         + "***\n");
 
-        Intent intent = new Intent(getBaseContext(), AlarmReceiver.class);
+        Intent intent = new Intent(getBaseContext(), SetDate.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getBaseContext(), RQS_1, intent, 0);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, targetCal.getTimeInMillis(), pendingIntent);

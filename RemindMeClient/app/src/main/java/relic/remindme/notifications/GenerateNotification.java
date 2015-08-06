@@ -39,6 +39,7 @@ public class GenerateNotification {
 
         builder.setContentText("This is a test message!")
                 .setSmallIcon(R.drawable.ic_launcher)
+                .setDefaults(Notification.DEFAULT_SOUND)
                 .setWhen(System.currentTimeMillis());
 
         Notification notification = builder.build();

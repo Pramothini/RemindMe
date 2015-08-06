@@ -64,10 +64,6 @@
             android:label="@string/title_activity_notify_message" >
         </activity>
         <activity
-            android:name="relic.remindme.AlarmReceiver"
-            android:label="@string/title_activity_alarm_receiver" >
-        </activity>
-        <activity
             android:name="relic.remindme.notifications.Notifications_MainScreen"
             android:label="@string/title_activity_notifications__main_screen" >
         </activity>
