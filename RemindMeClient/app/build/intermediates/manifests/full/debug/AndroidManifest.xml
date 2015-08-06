@@ -19,7 +19,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="relic.remindme.HomePage"
+            android:name="relic.remindme.screens.homepage.HomePage"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,35 +28,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="relic.remindme.ListItemActivity"
+            android:name="relic.remindme.screens.screen2.ListItemActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="relic.remindme.NotificationSettings"
-            android:label="@string/title_activity_notification_settings" >
-        </activity>
-        <activity
-            android:name="relic.remindme.SetTime"
-            android:theme="@style/AppTheme.CustomTheme" >
-        </activity>
-        <activity
-            android:name="relic.remindme.SetLocation"
-            android:theme="@style/AppTheme.CustomTheme" >
-        </activity>
-        <activity
-            android:name="relic.remindme.SetDate"
-            android:theme="@style/AppTheme.CustomTheme" >
-        </activity>
-        <activity
-            android:name="relic.remindme.RepeatAlert"
-            android:theme="@style/AppTheme.CustomTheme" >
-        </activity>
-        <activity
-            android:name="relic.remindme.RecordAlertSound"
-            android:theme="@style/AppTheme.CustomTheme" >
-        </activity>
-        <activity
-            android:name="relic.remindme.QRscanner.QRScanner_screen"
+            android:name="relic.remindme.screens.QRscanner.QRScanner_screen"
             android:label="@string/title_activity_qrscanner_screen" >
         </activity>
         <activity
@@ -64,12 +40,12 @@
             android:label="@string/title_activity_notify_message" >
         </activity>
         <activity
-            android:name="relic.remindme.notifications.Notifications_MainScreen"
+            android:name="relic.remindme.screens.notifications.Notifications_MainScreen"
             android:label="@string/title_activity_notifications__main_screen" >
         </activity>
 
         <receiver
-            android:name="relic.remindme.notifications.AlarmRing"
+            android:name="relic.remindme.screens.notifications.AlarmRing"
             android:process=":remote" />
     </application>
 

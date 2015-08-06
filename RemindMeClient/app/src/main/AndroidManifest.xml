@@ -13,7 +13,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".HomePage"
+            android:name=".screens.homepage.HomePage"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,35 +22,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ListItemActivity"
+            android:name=".screens.screen2.ListItemActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".NotificationSettings"
-            android:label="@string/title_activity_notification_settings" >
-        </activity>
-        <activity
-            android:name=".SetTime"
-            android:theme="@style/AppTheme.CustomTheme" >
-        </activity>
-        <activity
-            android:name=".SetLocation"
-            android:theme="@style/AppTheme.CustomTheme" >
-        </activity>
-        <activity
-            android:name=".SetDate"
-            android:theme="@style/AppTheme.CustomTheme" >
-        </activity>
-        <activity
-            android:name=".RepeatAlert"
-            android:theme="@style/AppTheme.CustomTheme" >
-        </activity>
-        <activity
-            android:name=".RecordAlertSound"
-            android:theme="@style/AppTheme.CustomTheme" >
-        </activity>
-        <activity
-            android:name=".QRscanner.QRScanner_screen"
+            android:name=".screens.QRscanner.QRScanner_screen"
             android:label="@string/title_activity_qrscanner_screen" >
         </activity>
         <activity
@@ -59,10 +35,10 @@
         </activity>
 
         <activity
-            android:name=".notifications.Notifications_MainScreen"
+            android:name=".screens.notifications.Notifications_MainScreen"
             android:label="@string/title_activity_notifications__main_screen" >
         </activity>
-        <receiver android:name=".notifications.AlarmRing" android:process=":remote" />
+        <receiver android:name=".screens.notifications.AlarmRing" android:process=":remote" />
 
     </application>
 
