@@ -240,7 +240,7 @@ public class ListLab  {
     }
 
     /**
-     * checks whether a lsit name already exists before creating the list
+     * checks whether a list name already exists before creating the list
      * If it already exists then, user will not be allowed to create another
      * list with the same name
      * @param listname

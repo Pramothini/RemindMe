@@ -52,7 +52,7 @@ public class ListItemActivity extends ListActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null)
         {
-            
+
            if(extras.getString("QR_item")!=null)
             {
             String QR_listitem = extras.getString("QR_item");

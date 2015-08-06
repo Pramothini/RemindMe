@@ -23,8 +23,8 @@ public class Fix1to5 {
 	}
 
 	String fix3(int errno, String errmsg){
-//		Log.INFO("LOG: " + new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(new Date()) + " Error No: " + errno + " Error msg: " + errmsg + "Error Fix :" + " Adding a default value as OptionSet");
-		return "OptionSet";
+        Log.e("LOG: " + new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(new Date()), "Error No: " + errno + " Error msg: " + errmsg + "Error Fix :" + " Toast msg asking the user to enter a new unused list name");
+        return "Cannot create a List as List name is already used. Please provide a new unused name for your List";
 	}
 
 	String fix4(int errno, String errmsg){

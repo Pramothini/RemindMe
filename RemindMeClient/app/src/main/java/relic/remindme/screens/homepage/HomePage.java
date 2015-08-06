@@ -94,6 +94,10 @@ public class HomePage extends ListActivity {
                             Toast toast = Toast.makeText(inputField.getContext(), fixError.fix(1, "List name is empty").toString() , Toast.LENGTH_LONG);
                             toast.show();
                         }
+                        else if(fixError.checkIfListNameAlreadyExists(task)){
+                            Toast toast = Toast.makeText(inputField.getContext(), fixError.fix(3, "List name is already present").toString() , Toast.LENGTH_LONG);
+                            toast.show();
+                        }
                         else {
                             int id = create.createNewList(task, android_id);
 //                        Toast toast = Toast.makeText(inputField.getContext(), "created a new list and the list id is" + id, Toast.LENGTH_LONG);
