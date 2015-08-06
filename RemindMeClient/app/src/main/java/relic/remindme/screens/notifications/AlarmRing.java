@@ -27,7 +27,7 @@ public class AlarmRing extends BroadcastReceiver {
         try {
             Log.e("App", "SRISHTI: Reached Alarm Ring class!");
 
-            GenerateNotification.generateNotification(arg0);
+            GenerateNotifications.generateNotification(arg0);
         } catch (Exception e) {
             e.printStackTrace();
         }

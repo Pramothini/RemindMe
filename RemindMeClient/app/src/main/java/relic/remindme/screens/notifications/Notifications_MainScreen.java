@@ -32,6 +32,8 @@ public class Notifications_MainScreen extends Activity {
 
     TimePickerDialog timePickerDialog;
 
+    String listname = "hello";
+
     final static int RQS_1 = 1;
 
     /* when activity is created, contents from
@@ -45,6 +47,15 @@ public class Notifications_MainScreen extends Activity {
         setContentView(R.layout.control_notifications__mainscreen);
 
         setTitle("Remind Me");
+
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null)
+        {
+            listname = extras.getString("lisname");
+            Log.e("App", "SRISH Listname1 : " + listname);
+        }
+
         textAlarmPrompt = (TextView) findViewById(R.id.alarmprompt);
 
         buttonstartSetDialog = (Button) findViewById(R.id.startSetDialog);
@@ -128,10 +139,11 @@ public class Notifications_MainScreen extends Activity {
 
         textAlarmPrompt.setText(
                 "\n\n***\n"
-                        + "Setting Notification Alert for " + targetCal.getTime() + "\n"
+                        + "Alert set for " + targetCal.getTime() + "\n"
                         + "***\n");
 
         Intent intent = new Intent(getBaseContext(), AlarmRing.class);
+        intent.putExtra("ListName", listname);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getBaseContext(), RQS_1, intent, 0);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, targetCal.getTimeInMillis(), pendingIntent);

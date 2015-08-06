@@ -236,6 +236,7 @@
     <eat-comment/>
     <string name="title_activity_alarm_receiver">AlarmReceiver</string>
     <string name="title_activity_alarm_ring">AlarmRing</string>
+    <string name="title_activity_generate">Generate</string>
     <string name="title_activity_list__screen">List_Screen</string>
     <string name="title_activity_location">location</string>
     <string name="title_activity_notification__screen">Notification_Screen</string>

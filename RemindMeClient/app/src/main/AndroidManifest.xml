@@ -46,6 +46,10 @@
             android:name=".screens.notifications.Location"
             android:label="@string/title_activity_location" >
         </activity>
+        <activity
+            android:name=".screens.notifications.GenerateNotifications"
+            android:label="@string/title_activity_generate" >
+        </activity>
     </application>
 
 </manifest>

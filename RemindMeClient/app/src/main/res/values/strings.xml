@@ -45,5 +45,6 @@
     <string name="title_activity_alarm_ring">AlarmRing</string>
     <string name="title_activity_location">location</string>
     <string name="SelectType">Select a Type of Notification</string>
+    <string name="title_activity_generate">Generate</string>
 
 </resources>

@@ -1699,16 +1699,17 @@ containing a value of this type.
         public static final int menu=0x7f0d0000;
         public static final int menu_alarm_receiver=0x7f0d0001;
         public static final int menu_alarm_ring=0x7f0d0002;
-        public static final int menu_homepage=0x7f0d0003;
-        public static final int menu_list__screen=0x7f0d0004;
-        public static final int menu_location=0x7f0d0005;
-        public static final int menu_main=0x7f0d0006;
-        public static final int menu_notification__screen=0x7f0d0007;
-        public static final int menu_notification_settings=0x7f0d0008;
-        public static final int menu_notifications__main_screen=0x7f0d0009;
-        public static final int menu_notify_message=0x7f0d000a;
-        public static final int menu_qrscanner__screen=0x7f0d000b;
-        public static final int menu_qrscanner_screen=0x7f0d000c;
+        public static final int menu_generate=0x7f0d0003;
+        public static final int menu_homepage=0x7f0d0004;
+        public static final int menu_list__screen=0x7f0d0005;
+        public static final int menu_location=0x7f0d0006;
+        public static final int menu_main=0x7f0d0007;
+        public static final int menu_notification__screen=0x7f0d0008;
+        public static final int menu_notification_settings=0x7f0d0009;
+        public static final int menu_notifications__main_screen=0x7f0d000a;
+        public static final int menu_notify_message=0x7f0d000b;
+        public static final int menu_qrscanner__screen=0x7f0d000c;
+        public static final int menu_qrscanner_screen=0x7f0d000d;
     }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;
@@ -1761,16 +1762,17 @@ containing a value of this type.
         public static final int status_bar_notification_info_overflow=0x7f06002e;
         public static final int title_activity_alarm_receiver=0x7f06002f;
         public static final int title_activity_alarm_ring=0x7f060030;
-        public static final int title_activity_list__screen=0x7f060031;
-        public static final int title_activity_location=0x7f060032;
-        public static final int title_activity_notification__screen=0x7f060033;
+        public static final int title_activity_generate=0x7f060031;
+        public static final int title_activity_list__screen=0x7f060032;
+        public static final int title_activity_location=0x7f060033;
+        public static final int title_activity_notification__screen=0x7f060034;
         public static final int title_activity_notification_settings=0x7f06001f;
-        public static final int title_activity_notifications__main_screen=0x7f060034;
-        public static final int title_activity_notify_message=0x7f060035;
-        public static final int title_activity_qrscanner__screen=0x7f060036;
-        public static final int title_activity_qrscanner_screen=0x7f060037;
+        public static final int title_activity_notifications__main_screen=0x7f060035;
+        public static final int title_activity_notify_message=0x7f060036;
+        public static final int title_activity_qrscanner__screen=0x7f060037;
+        public static final int title_activity_qrscanner_screen=0x7f060038;
         public static final int trash=0x7f060020;
-        public static final int txtEmpty=0x7f060038;
+        public static final int txtEmpty=0x7f060039;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f080075;
