@@ -49,7 +49,7 @@ category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:21:17
 	android:name
 		ADDED from AndroidManifest.xml:21:27
-activity#relic.remindme.screens.screen2.ListItemActivity
+activity#relic.remindme.screens.listitems.ListItemActivity
 ADDED from AndroidManifest.xml:24:9
 	android:label
 		ADDED from AndroidManifest.xml:26:13

@@ -8,6 +8,12 @@ import java.util.ArrayList;
  */
 public interface Creatable {
 
+    /**
+     * Used to create a new list
+     * @param listname
+     * @param android_id
+     * @return
+     */
     public int createNewList(String listname,String android_id);
     
 

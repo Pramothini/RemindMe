@@ -1,4 +1,4 @@
-package relic.remindme.screens.screen2;
+package relic.remindme.screens.listitems;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -38,46 +38,49 @@ public class ListItemActivity extends ListActivity {
     Updatable update;
     FixExceptions fixExceptions;
 
+    /**
+     * called before the ListItemActivity becomes visible
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.control_listitemactivity);
 
+        // initializing the API
         update = new Manage(this);
         read = new Manage(this);
         fixExceptions = new Manage(this);
 
         EditText edit = (EditText) findViewById(R.id.txtItem);
 
-
         Bundle extras = getIntent().getExtras();
         if (extras != null)
         {
-
            if(extras.getString("QR_item")!=null)
             {
             String QR_listitem = extras.getString("QR_item");
             Toast.makeText(this, "added item:" + QR_listitem, Toast.LENGTH_LONG).show();
             edit.setText(edit.getText() + QR_listitem);
             }
-
             listname = extras.getString("ListName");
         }
         Log.e("App", "LIST NAME: " + listname);
         list = read.getAllListItems(listname);
         Button btn = (Button) findViewById(R.id.btnAdd);
-
         Button btnDel = (Button) findViewById(R.id.btnDel);
-
-
-        Toast toast = Toast.makeText(this, "you have clicked on "+listname, Toast.LENGTH_LONG);
-        toast.show();
+//        Toast toast = Toast.makeText(this, "you have clicked on "+listname, Toast.LENGTH_LONG);
+//        toast.show();
 
 
         /** Defining the ArrayAdapter to set items to ListView */
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, list);
 
-        /** Defining a click event listener for the button "Add" */
+        /**
+         * Defining a click event listener for the button "Add"
+         * If a list item is empty , it raises a custom exception and does not create that
+         * list item
+         * */
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,12 +130,15 @@ public class ListItemActivity extends ListActivity {
         setListAdapter(adapter);
     }
 
+    /**
+     * When the user clicks on back, this method will be called
+     * saves the list items to database
+     */
     @Override
     public void onBackPressed() {
         int listid = update.savelistitems(listname,list);
 //        Toast toast2 = Toast.makeText(this, "value of list item id is"+listid, Toast.LENGTH_LONG);
 //        toast2.show();
-
         Intent k =new Intent();
         k.setClass(this, HomePage.class);
         startActivity(k);
@@ -160,6 +166,11 @@ public class ListItemActivity extends ListActivity {
 //        alert.show();
     }
 
+    /**
+     * called when menu options are created
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -167,11 +178,16 @@ public class ListItemActivity extends ListActivity {
         return true;
     }
 
+    /**
+     * called when a menu item is clicked
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        // as a parent activity is specified in AndroidManifest.xml.
         int id = item.getItemId();
         switch(id)
         {

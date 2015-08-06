@@ -26,7 +26,7 @@ import adapter.Readable;
 import entities.List_entity;
 
 import exceptions.ExceptionManager;
-import relic.remindme.screens.screen2.ListItemActivity;
+import relic.remindme.screens.listitems.ListItemActivity;
 import relic.remindme.R;
 
 import exceptions.FixExceptions;
@@ -38,7 +38,6 @@ import exceptions.FixExceptions;
 public class HomePage extends ListActivity {
 
     private ArrayList<List_entity> mListEntity = new ArrayList<List_entity>();
-//    ListLab listlab = ListLab.get(this);
     private ListAdapter listAdapter;
     private String android_id;
     Deletable del;
@@ -46,30 +45,24 @@ public class HomePage extends ListActivity {
     Readable read;
     FixExceptions fixError;
 
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.control_homepage1);
        android_id = Secure.getString(this.getContentResolver(),
                 Secure.ANDROID_ID);
-//        Toast toast = Toast.makeText(this, "my android id is" + android_id, Toast.LENGTH_LONG);
-//        toast.show();
+        //assign values for the CRUD APIs
         del = new Manage(this);
         create = new Manage(this);
         read = new Manage(this);
         fixError = new Manage(this);
-
         updateUI();
     }
 
 
-    //new design
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
-
         return true;
     }
 
@@ -126,11 +119,10 @@ public class HomePage extends ListActivity {
         }
     }
 
+    /**
+     * Updates the UI based on the number of lists present in the db
+     */
     private void updateUI() {
-//        ListLab listlab = ListLab.getlListLab();
-//        Log.e("HomePage_GetList", "printing listlab object"+listlab);
-////        if(listlab != null) {
-//            Log.e("HomePage_GetList", "printing listlab object is not null "+listlab);
             mListEntity = read.getallLists();
             String[] columns = new String[] { "TASK", "_ID"};
 
@@ -153,36 +145,14 @@ public class HomePage extends ListActivity {
             );
 
             this.setListAdapter(listAdapter);
-
             Log.e("HomePage_GetList", "list names from db "+listnames.toString());
-//        }
-//        else{
-//            Log.e("HomePage_GetList", "listlab is null ");
-//        }
-
-
-
-
-//        String[] columns = new String[] { "TASK", "_ID"};
-//
-//        MatrixCursor matrixCursor= new MatrixCursor(columns);
-//        startManagingCursor(matrixCursor);
-//
-//        matrixCursor.addRow(new Object[]{"Item A", "1"});
-//        matrixCursor.addRow(new Object[]{"Item B", "2"});
-//
-//        listAdapter = new SimpleCursorAdapter(
-//                this,
-//                R.layout.control_homepage2,
-//                matrixCursor,
-//                new String[] { "TASK" },
-//                new int[]{R.id.taskTextView},
-//                0
-//        );
-//
-//        this.setListAdapter(listAdapter);
     }
 
+    /**
+     * Action listener for the delete list button
+     * Deletes the corresponding list in the UI
+     * @param view
+     */
     public void onDoneButtonClick(View view) {
         View v = (View) view.getParent();
         TextView taskTextView = (TextView) v.findViewById(R.id.taskTextView);
@@ -191,6 +161,10 @@ public class HomePage extends ListActivity {
         updateUI();
     }
 
+    /**
+     * Used to navigate to the next activity
+     * @param v
+     */
     public void enterList(View v) {
         TextView tv = (TextView) v;
         Intent i=new Intent();

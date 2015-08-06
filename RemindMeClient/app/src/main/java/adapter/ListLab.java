@@ -13,7 +13,6 @@ import exceptions.ExceptionManager;
 
 
 /**
- *
  * Implements CRUD operations for list and list items
  */
 public class ListLab  {
@@ -126,7 +125,6 @@ public class ListLab  {
        Log.e("ListLab", "inside savelistitems() in list lab class .. start. value of listname" + listname + "value of listitems" + listitems.toString());
        boolean success = true;
        int listitemid = 1;
-
        getDb().open();
        int listid = db.getListID(listname);
        if(listid != -1) {
@@ -256,11 +254,22 @@ public class ListLab  {
 
     }
 
+    /**
+     * Validates names entered by the user
+     * @param msg - name entered by user
+     * @return true - if msg is empty and false if msg is not empty
+     */
     public boolean validator(String msg){
         ExceptionManager em = new ExceptionManager();
         return em.validator(msg);
     }
 
+    /**
+     * Used to fix exceptions
+     * @param errorno - error number of the exception
+     * @param errmsg - error message of the exception
+     * @return - fix for the exception
+     */
     public Object fix(int errorno, String errmsg){
         ExceptionManager em = new ExceptionManager();
         return em.fix(errorno,errmsg);

@@ -14,6 +14,9 @@ import android.util.Log;
 import entities.ListItem;
 import entities.List_entity;
 
+/**
+ * Used to perform CRUD operations of all the entities in the database tables
+ */
 public class DatabaseConnector {
     private SQLiteDatabase database; // database object
     private DatabaseOpenHelper databaseOpenHelper; // database helper
@@ -73,17 +76,6 @@ public class DatabaseConnector {
             database.close(); // close the database connection
     } // end method close
 
-//    public long insertNewNotification(Notifications n) {
-////        long listid;
-////        ContentValues contentValues = new ContentValues();
-////        contentValues.put(COL_2, android_id);
-////        contentValues.put(COL_3, "");
-////        contentValues.put(COL_4, listname);
-////        open(); // open the database
-////        listid = database.insert(List, null, contentValues);
-////        close(); // close the database
-////        return listid;
-//    }
 
     /*to insert data in List table*/
     public long insertNewList(String listname, String android_id) {
@@ -98,6 +90,11 @@ public class DatabaseConnector {
         return listid;
     }
 
+    /**
+     * gets the list id for a list name
+     * @param listname
+     * @return id of the list
+     */
     public int getListID(String listname){
         int id = -1;
         open(); // open the database
@@ -112,7 +109,11 @@ public class DatabaseConnector {
     }
 
 
-    /*to insert data in List table*/
+    /**
+     * Used to insert data to a list
+     * @param listEntity
+     * @return
+     */
     public long insertList(List_entity listEntity) {
         long listid;
         ContentValues contentValues = new ContentValues();
@@ -126,7 +127,6 @@ public class DatabaseConnector {
     }
 
     /*to insert data in List Items*/
-
     public long insertListItem(int listid, String listname) {
         Log.e("DatabseConnector", " list item " + listname + "list id is" + listid);
         ContentValues contentValues = new ContentValues();
@@ -137,24 +137,31 @@ public class DatabaseConnector {
         close();
         Log.e("DatabseConnector", " resullt " + result );
         return result;
-
-//        if(result!= -1){
-//            Log.e("DatabseConnector"," saved list item "+listname);
-//            return true;
-//        }
-//        else{
-//            Log.e("DatabseConnector"," not saved list item "+listname);
-//            return false;
-//        }
     }
 
 
+    /**
+     * used to get all list items that belong to a list id
+     * @param listid
+     * @return
+     */
     public Cursor getAllListItems(int listid){
         open();
         Cursor res = database.rawQuery("select * from "+List_Item+" where listid = "+listid, null);
         return res;
     }
 
+    //    public long insertNewNotification(Notifications n) {
+////        long listid;
+////        ContentValues contentValues = new ContentValues();
+////        contentValues.put(COL_2, android_id);
+////        contentValues.put(COL_3, "");
+////        contentValues.put(COL_4, listname);
+////        open(); // open the database
+////        listid = database.insert(List, null, contentValues);
+////        close(); // close the database
+////        return listid;
+//    }
 
     /* to insert data in Notification */
 
@@ -227,30 +234,20 @@ public class DatabaseConnector {
     }
 
 
-//
-//    /*to update a records in List table*/
-//
-//    public Cursor updateListTable(Integer id, Date date, String listname) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        Cursor res = db.rawQuery("update List VALUES('NULL, '" + id + "' ,'" + date + "','" + listname + "')", null);
-//        return res;
-//    }
-//
-//    /*to update records in ListItem table*/
-//    public Cursor updateListItemTable(Integer id) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        Cursor res = db.rawQuery("update ListItem VALUES('NULL,'" + id + "')", null);
-//        return res;
-//    }
-//
-//    /*delete records in List */
-//
+    /**
+     * Used to delete a list
+     * @param listname
+     */
     public void deleteList(String listname) {
         open();
         database.delete("LIST", "listname=?", new String[]{listname});
         close();
     }
 
+    /**
+     * Used to delete list items
+     * @param listid
+     */
     public void deleteListItems(int listid) {
         open();
         database.delete(List_Item, "listid=?", new String[]{listid+""});
@@ -258,7 +255,9 @@ public class DatabaseConnector {
     }
 
 
-
+    /**
+     * Helper class
+     */
    private class DatabaseOpenHelper extends SQLiteOpenHelper {
         public static final String List = "LIST";
         public static final String COL_1 = "id";
@@ -276,7 +275,7 @@ public class DatabaseConnector {
             super(context, name, factory, version);
         } // end DatabaseOpenHelper constructor
 
-        // creates the mortgage table when the database is created
+        // creates the tables when the database is created
         @Override
         public void onCreate(SQLiteDatabase db) {
             db.execSQL("create table " + List + " (id INTEGER PRIMARY KEY AUTOINCREMENT, userid INTEGER, created_date DATETIME, listname TEXT)");

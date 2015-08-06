@@ -79,7 +79,6 @@ public class List_entity implements Serializable {
 		this.notification = notification;
 	}
 
-	/*to add listitems*/
     public void setListItems(ArrayList<ListItem> listitems){
 		this.listitems=listitems;
 	}

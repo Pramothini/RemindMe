@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".screens.screen2.ListItemActivity"
+            android:name=".screens.listitems.ListItemActivity"
             android:label="@string/app_name" >
         </activity>
         <activity

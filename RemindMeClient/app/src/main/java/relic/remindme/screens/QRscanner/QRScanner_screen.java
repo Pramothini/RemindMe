@@ -11,7 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import relic.remindme.screens.screen2.ListItemActivity;
+import relic.remindme.screens.listitems.ListItemActivity;
 import relic.remindme.R;
 
 public class QRScanner_screen extends Activity {

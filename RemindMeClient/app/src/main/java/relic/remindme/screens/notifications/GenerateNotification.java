@@ -10,7 +10,7 @@ import android.util.Log;
 
 import java.util.Calendar;
 
-import relic.remindme.screens.screen2.ListItemActivity;
+import relic.remindme.screens.listitems.ListItemActivity;
 import relic.remindme.R;
 
 

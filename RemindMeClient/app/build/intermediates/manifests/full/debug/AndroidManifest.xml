@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="relic.remindme.screens.screen2.ListItemActivity"
+            android:name="relic.remindme.screens.listitems.ListItemActivity"
             android:label="@string/app_name" >
         </activity>
         <activity

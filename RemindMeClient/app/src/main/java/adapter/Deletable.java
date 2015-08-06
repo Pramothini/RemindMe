@@ -6,7 +6,16 @@ package adapter;
  */
 public interface Deletable {
 
+    /**
+     * Used to delete list items
+     * @param listid
+     */
     public void deleteAllListItems(int listid);
+
+    /**
+     * Used to delete a list
+     * @param name
+     */
     public void deleteList(String name);
 }
 
