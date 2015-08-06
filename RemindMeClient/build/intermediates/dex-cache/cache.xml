@@ -2,18 +2,18 @@
 <items version="2" >
 
     <item
-        jar="/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/pre-dexed/debug/classes-caa098bb8788917e34da8e6fbae3a2e2dc2fb667.jar" />
-    </item>
-    <item
         jar="/Users/srish/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
         <dex dex="/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-46ab9654467546368b51536c043beb2bad8f61fd.jar" />
+    </item>
+    <item
+        jar="/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/pre-dexed/debug/classes-caa098bb8788917e34da8e6fbae3a2e2dc2fb667.jar" />
     </item>
     <item
         jar="/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"

@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import relic.remindme.screens.listitems.ListItemActivity;
 import relic.remindme.R;
@@ -31,6 +30,9 @@ public class QRScanner_screen extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.control_qrscanner__screen);
+        setTitle("Remind Me");
+
         String listname = "hello";
         Bundle extras = getIntent().getExtras();
         if (extras != null)
@@ -39,7 +41,6 @@ public class QRScanner_screen extends Activity {
             Log.e("App", "QR CODE Listname1 : " + listname);
         }
 
-        setContentView(R.layout.control_qrscanner__screen);
     }
 
     /* When scan bar is clicked, a new activity is started

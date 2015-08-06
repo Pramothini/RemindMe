@@ -49,7 +49,9 @@ public class HomePage extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.control_homepage1);
-       android_id = Secure.getString(this.getContentResolver(),
+        setTitle("Remind Me");
+
+        android_id = Secure.getString(this.getContentResolver(),
                 Secure.ANDROID_ID);
         //assign values for the CRUD APIs
         del = new Manage(this);

@@ -46,6 +46,7 @@ public class ListItemActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.control_listitemactivity);
+        setTitle("Remind Me");
 
         // initializing the API
         update = new Manage(this);
