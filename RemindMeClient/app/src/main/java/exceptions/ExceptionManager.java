@@ -3,7 +3,7 @@ package exceptions;
 /**
  * Created by pramothinidk on 8/5/15.
  */
-public class ExceptionManager {
+public class ExceptionManager extends Exception{
     private int errorno;
     private String errormsg;
 

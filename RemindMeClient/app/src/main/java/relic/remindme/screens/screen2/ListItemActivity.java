@@ -16,6 +16,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import adapter.*;
+import exceptions.ExceptionManager;
 import exceptions.FixExceptions;
 import relic.remindme.R;
 import relic.remindme.screens.QRscanner.QRScanner_screen;
@@ -81,14 +82,18 @@ public class ListItemActivity extends ListActivity {
             @Override
             public void onClick(View v) {
                 EditText edit = (EditText) findViewById(R.id.txtItem);
-                if(fixExceptions.validator(edit.getText().toString())){
-                    Toast toast = Toast.makeText(ListItemActivity.this, fixExceptions.fix(2,"List item name is empty").toString(), Toast.LENGTH_LONG);
-                    toast.show();
+                try {
+                    if (fixExceptions.validator(edit.getText().toString())) {
+                        throw new ExceptionManager(2, "List item name is empty");
+                    } else {
+                        list.add(edit.getText().toString());
+                        edit.setText("");
+                        adapter.notifyDataSetChanged();
+                    }
                 }
-                else {
-                    list.add(edit.getText().toString());
-                    edit.setText("");
-                    adapter.notifyDataSetChanged();
+                catch(ExceptionManager e){
+                    Toast toast = Toast.makeText(ListItemActivity.this, fixExceptions.fix(e.getErrorno(), e.getErrormsg()).toString(), Toast.LENGTH_LONG);
+                    toast.show();
                 }
             }
         };

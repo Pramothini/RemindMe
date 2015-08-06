@@ -25,6 +25,7 @@ import adapter.Manage;
 import adapter.Readable;
 import entities.List_entity;
 
+import exceptions.ExceptionManager;
 import relic.remindme.screens.screen2.ListItemActivity;
 import relic.remindme.R;
 
@@ -44,6 +45,7 @@ public class HomePage extends ListActivity {
     Creatable create;
     Readable read;
     FixExceptions fixError;
+
 
 
     @Override
@@ -90,23 +92,25 @@ public class HomePage extends ListActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String task = inputField.getText().toString();
-                        if(fixError.validator(task)) {
-                            Toast toast = Toast.makeText(inputField.getContext(), fixError.fix(1, "List name is empty").toString() , Toast.LENGTH_LONG);
-                            toast.show();
-                        }
-                        else if(fixError.checkIfListNameAlreadyExists(task)){
-                            Toast toast = Toast.makeText(inputField.getContext(), fixError.fix(3, "List name is already present").toString() , Toast.LENGTH_LONG);
-                            toast.show();
-                        }
-                        else {
-                            int id = create.createNewList(task, android_id);
+                        try {
+                            if (fixError.validator(task)) {
+                                throw new ExceptionManager(1,"List name is empty");
+                            } else if (fixError.checkIfListNameAlreadyExists(task)) {
+                                throw new ExceptionManager(3, "List name is already present");
+                            } else {
+                                int id = create.createNewList(task, android_id);
 //                        Toast toast = Toast.makeText(inputField.getContext(), "created a new list and the list id is" + id, Toast.LENGTH_LONG);
 //                        toast.show();
-                            Intent intent = new Intent();
-                            intent.putExtra("ListName", task);
-                            intent.setClass(HomePage.this, ListItemActivity.class);
-                            startActivity(intent);
-                            updateUI();
+                                Intent intent = new Intent();
+                                intent.putExtra("ListName", task);
+                                intent.setClass(HomePage.this, ListItemActivity.class);
+                                startActivity(intent);
+                                updateUI();
+                            }
+                        }
+                        catch (ExceptionManager e){
+                            Toast toast = Toast.makeText(inputField.getContext(), fixError.fix(e.getErrorno(), e.getErrormsg()).toString(), Toast.LENGTH_LONG);
+                            toast.show();
                         }
 
                     }
