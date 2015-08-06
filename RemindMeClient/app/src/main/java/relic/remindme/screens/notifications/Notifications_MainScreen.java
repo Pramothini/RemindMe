@@ -32,7 +32,7 @@ public class Notifications_MainScreen extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notifications__main_screen);
+        setContentView(R.layout.control_notifications__mainscreen);
 
         textAlarmPrompt = (TextView) findViewById(R.id.alarmprompt);
 

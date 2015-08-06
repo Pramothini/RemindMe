@@ -224,7 +224,7 @@ public class DefaultSocketClient extends Thread implements SocketClientConstants
 	}
 
 
-//	public static void main (String arg[]){
+//	public static void control_homepage1 (String arg[]){
 //		DefaultSocketClient d;
 //		try{
 //			d = new DefaultSocketClient(new Socket("localhost", 4444));

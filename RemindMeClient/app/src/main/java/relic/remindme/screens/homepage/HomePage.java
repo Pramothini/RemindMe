@@ -44,7 +44,7 @@ public class HomePage extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.control_homepage1);
        android_id = Secure.getString(this.getContentResolver(),
                 Secure.ANDROID_ID);
         Toast toast = Toast.makeText(this, "my android id is" + android_id, Toast.LENGTH_LONG);
@@ -122,7 +122,7 @@ public class HomePage extends ListActivity {
 
             listAdapter = new SimpleCursorAdapter(
                     this,
-                    R.layout.task_view,
+                    R.layout.control_homepage2,
                     matrixCursor,
                     new String[] { "TASK" },
                     new int[]{R.id.taskTextView},
@@ -150,7 +150,7 @@ public class HomePage extends ListActivity {
 //
 //        listAdapter = new SimpleCursorAdapter(
 //                this,
-//                R.layout.task_view,
+//                R.layout.control_homepage2,
 //                matrixCursor,
 //                new String[] { "TASK" },
 //                new int[]{R.id.taskTextView},

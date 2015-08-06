@@ -31,7 +31,7 @@ public class QRScanner_screen extends Activity {
             Log.e("App", "QR CODE Listname1 : " + listname);
         }
 
-        setContentView(R.layout.activity_qrscanner__screen);
+        setContentView(R.layout.control_qrscanner__screen);
     }
 
     public void scanBar(View v) {

@@ -39,7 +39,7 @@ public class ListItemActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list__screen);
+        setContentView(R.layout.control_listitemactivity);
 
         update = new Manage(this);
         read = new Manage(this);
@@ -62,10 +62,10 @@ public class ListItemActivity extends ListActivity {
         }
         Log.e("App", "LIST NAME: " + listname);
         list = read.getAllListItems(listname);
-        /** Reference to the add button of the layout main.xml */
+        /** Reference to the add button of the layout controller_homepage1roller_homepage1.xml */
         Button btn = (Button) findViewById(R.id.btnAdd);
 
-        /** Reference to the delete button of the layout main.xml */
+        /** Reference to the delete button of the layout control_homepage1.xmler_homepage1.xml */
         Button btnDel = (Button) findViewById(R.id.btnDel);
 
 

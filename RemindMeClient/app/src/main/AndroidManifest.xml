@@ -33,13 +33,19 @@
             android:name=".push_Notifications.NotifyMessage"
             android:label="@string/title_activity_notify_message" >
         </activity>
-
         <activity
             android:name=".screens.notifications.Notifications_MainScreen"
             android:label="@string/title_activity_notifications__main_screen" >
         </activity>
-        <receiver android:name=".screens.notifications.AlarmRing" android:process=":remote" />
 
+        <receiver
+            android:name=".screens.notifications.AlarmRing"
+            android:process=":remote" />
+
+        <activity
+            android:name=".screens.notifications.Location"
+            android:label="@string/title_activity_location" >
+        </activity>
     </application>
 
 </manifest>

@@ -68,17 +68,23 @@ ADDED from AndroidManifest.xml:32:9
 	android:name
 		ADDED from AndroidManifest.xml:33:13
 activity#relic.remindme.screens.notifications.Notifications_MainScreen
-ADDED from AndroidManifest.xml:37:9
+ADDED from AndroidManifest.xml:36:9
 	android:label
-		ADDED from AndroidManifest.xml:39:13
-	android:name
 		ADDED from AndroidManifest.xml:38:13
+	android:name
+		ADDED from AndroidManifest.xml:37:13
 receiver#relic.remindme.screens.notifications.AlarmRing
 ADDED from AndroidManifest.xml:41:9
 	android:process
-		ADDED from AndroidManifest.xml:41:67
+		ADDED from AndroidManifest.xml:43:13
 	android:name
-		ADDED from AndroidManifest.xml:41:19
+		ADDED from AndroidManifest.xml:42:13
+activity#relic.remindme.screens.notifications.Location
+ADDED from AndroidManifest.xml:45:9
+	android:label
+		ADDED from AndroidManifest.xml:47:13
+	android:name
+		ADDED from AndroidManifest.xml:46:13
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from com.android.support:appcompat-v7:22.2.0:20:5

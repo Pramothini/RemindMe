@@ -42,7 +42,7 @@ public class DatabaseConnector {
     public static final String AlarmTypeLocation = "ALARMLOCATION";
     public static final String COL_10 = "alarm_id_location";
     public static final String COL_11 = "alarm_id2";
-    public static final String COL_12 = "location";
+    public static final String COL_12 = "Location";
 
     public static final String AlarmTypeSound = "ALARMSOUND";
     public static final String COL_13 = "alarm_id_sound";
@@ -170,11 +170,11 @@ public class DatabaseConnector {
 //            return true;
 //    }
 //
-//    public boolean insertAlarmTypeLocation(Integer alarm2, String location){
+//    public boolean insertAlarmTypeLocation(Integer alarm2, String Location){
 //        SQLiteDatabase db = this.getWritableDatabase();
 //        ContentValues contentValues = new ContentValues();
 //        contentValues.put(COL_11, alarm2);
-//        contentValues.put(COL_12, location);
+//        contentValues.put(COL_12, Location);
 //        long result = db.insert(AlarmTypeLocation,null,contentValues);
 //        if(result==-1)
 //            return false;

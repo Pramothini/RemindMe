@@ -47,6 +47,11 @@
         <receiver
             android:name="relic.remindme.screens.notifications.AlarmRing"
             android:process=":remote" />
+
+        <activity
+            android:name="relic.remindme.screens.notifications.Location"
+            android:label="@string/title_activity_location" >
+        </activity>
     </application>
 
 </manifest>
