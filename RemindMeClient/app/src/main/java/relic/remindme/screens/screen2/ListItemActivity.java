@@ -16,6 +16,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import adapter.*;
+import exceptions.FixExceptions;
 import relic.remindme.R;
 import relic.remindme.screens.QRscanner.QRScanner_screen;
 import relic.remindme.screens.homepage.HomePage;
@@ -31,10 +32,10 @@ public class ListItemActivity extends ListActivity {
     ArrayList list = new ArrayList();
     ArrayAdapter adapter;
     String listname;
-//    ListLab listLab = ListLab.get(this);
     adapter.Readable read;
 
     Updatable update;
+    FixExceptions fixExceptions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class ListItemActivity extends ListActivity {
 
         update = new Manage(this);
         read = new Manage(this);
+        fixExceptions = new Manage(this);
 
         EditText edit = (EditText) findViewById(R.id.txtItem);
 
@@ -50,22 +52,20 @@ public class ListItemActivity extends ListActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null)
         {
-            //
+            
            if(extras.getString("QR_item")!=null)
             {
             String QR_listitem = extras.getString("QR_item");
             Toast.makeText(this, "added item:" + QR_listitem, Toast.LENGTH_LONG).show();
             edit.setText(edit.getText() + QR_listitem);
             }
-            //
+
             listname = extras.getString("ListName");
         }
         Log.e("App", "LIST NAME: " + listname);
         list = read.getAllListItems(listname);
-        /** Reference to the add button of the layout controller_homepage1roller_homepage1.xml */
         Button btn = (Button) findViewById(R.id.btnAdd);
 
-        /** Reference to the delete button of the layout control_homepage1.xmler_homepage1.xml */
         Button btnDel = (Button) findViewById(R.id.btnDel);
 
 
@@ -81,9 +81,15 @@ public class ListItemActivity extends ListActivity {
             @Override
             public void onClick(View v) {
                 EditText edit = (EditText) findViewById(R.id.txtItem);
-                list.add(edit.getText().toString());
-                edit.setText("");
-                adapter.notifyDataSetChanged();
+                if(fixExceptions.validator(edit.getText().toString())){
+                    Toast toast = Toast.makeText(ListItemActivity.this, fixExceptions.fix(2,"List item name is empty").toString(), Toast.LENGTH_LONG);
+                    toast.show();
+                }
+                else {
+                    list.add(edit.getText().toString());
+                    edit.setText("");
+                    adapter.notifyDataSetChanged();
+                }
             }
         };
 
@@ -118,21 +124,9 @@ public class ListItemActivity extends ListActivity {
 
     @Override
     public void onBackPressed() {
-
-        int itemCount = getListView().getCount();
-//        Toast toast = Toast.makeText(this, "The total items is " + itemCount + "and the items are"+list.toString(), Toast.LENGTH_LONG);
-//        toast.show();
-
         int listid = update.savelistitems(listname,list);
-//String msg = "";
-//        if(listLab.savelistitems(listname,list)) {
-//           msg = "list items are saved successfully";
-//        }
-//        else{
-//            msg = "Problem in list item save";
-//        }
-        Toast toast2 = Toast.makeText(this, "value of list item id is"+listid, Toast.LENGTH_LONG);
-        toast2.show();
+//        Toast toast2 = Toast.makeText(this, "value of list item id is"+listid, Toast.LENGTH_LONG);
+//        toast2.show();
 
         Intent k =new Intent();
         k.setClass(this, HomePage.class);

@@ -24,12 +24,12 @@ import adapter.Deletable;
 import adapter.Manage;
 import adapter.Readable;
 import entities.List_entity;
-<<<<<<< Updated upstream:RemindMeClient/app/src/main/java/relic/remindme/screens/homepage/HomePage.java
+
 import relic.remindme.screens.screen2.ListItemActivity;
 import relic.remindme.R;
-=======
+
 import exceptions.FixExceptions;
->>>>>>> Stashed changes:RemindMeClient/app/src/main/java/relic/remindme/HomePage.java
+
 
 /**
  * Populates the list details of all the lists that the user had created in the home page
