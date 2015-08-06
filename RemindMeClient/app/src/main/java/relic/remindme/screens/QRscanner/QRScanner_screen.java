@@ -14,11 +14,19 @@ import android.widget.Toast;
 import relic.remindme.screens.listitems.ListItemActivity;
 import relic.remindme.R;
 
+/* This class handles all the QR and Bar code functioning
+ */
 public class QRScanner_screen extends Activity {
 
-    /** Called when the activity is first created. */
 
     static final String ACTION_SCAN = "com.google.zxing.client.android.SCAN";
+
+    /* Called when the activity is first created. */
+
+    /**
+     *
+     * @param savedInstanceState
+     */
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,6 +42,13 @@ public class QRScanner_screen extends Activity {
         setContentView(R.layout.control_qrscanner__screen);
     }
 
+    /* When scan bar is clicked, a new activity is started
+    *  PRODUCT MODE value is passed to the new activity */
+
+    /**
+     *
+     * @param v
+     */
     public void scanBar(View v) {
         try {
             Intent intent = new Intent(ACTION_SCAN);
@@ -43,6 +58,14 @@ public class QRScanner_screen extends Activity {
             showDialog(QRScanner_screen.this, "No Scanner Found", "Download a scanner code activity?", "Yes", "No").show();
         }
     }
+
+    /* When scan bar is clicked, a new activity is started
+    *  PRODUCT MODE value is passed to the new activity */
+
+    /**
+     *
+     * @param v
+     */
 
     public void scanQR(View v) {
         try {
@@ -54,6 +77,17 @@ public class QRScanner_screen extends Activity {
         }
     }
 
+    /* Takes the uri to scan the QR/Bar code */
+
+    /**
+     *
+     * @param act
+     * @param title
+     * @param message
+     * @param buttonYes
+     * @param buttonNo
+     * @return
+     */
     private static AlertDialog showDialog(final Activity act, CharSequence title, CharSequence message, CharSequence buttonYes, CharSequence buttonNo) {
         AlertDialog.Builder downloadDialog = new AlertDialog.Builder(act);
         downloadDialog.setTitle(title);
@@ -76,14 +110,22 @@ public class QRScanner_screen extends Activity {
         return downloadDialog.show();
     }
 
+    /* The Result is stored in contents
+     * Result is displayed as the Edit field text where new list items are added
+     */
+
+    /**
+     * 
+     * @param requestCode
+     * @param resultCode
+     * @param intent
+     */
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         if (requestCode == 0) {
             if (resultCode == RESULT_OK) {
                 String contents = intent.getStringExtra("SCAN_RESULT");
                 String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
 
-                Toast toast = Toast.makeText(this, "Content:" + contents + " Format:" + format, Toast.LENGTH_LONG);
-                toast.show();
 
                 Intent n = new Intent();
                 String listname = "List1";
@@ -102,14 +144,6 @@ public class QRScanner_screen extends Activity {
         }
     }
 
-//                Intent n =new Intent();
-//               n.putExtra("QR_item", contents);
-//                n.setClass(this, ListItemActivity.class);
-//
-//                startActivity(n);
-//
-//                Toast toast2 = Toast.makeText(this, "Content:" + contents + " Format:" + format, Toast.LENGTH_LONG);
-//                toast2.show();
 
 
 

@@ -6,9 +6,10 @@ android:orientation="vertical" >
 
 
 <TextView
+    android:id="@+id/instruct"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:text="@string/hello_world" />
+    android:text="@string/SelectType" />
 
 <Button
     android:id="@+id/startSetDialog"

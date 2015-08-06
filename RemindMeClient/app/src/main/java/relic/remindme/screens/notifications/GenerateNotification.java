@@ -15,14 +15,27 @@ import relic.remindme.R;
 
 
 /**
- * Created by srish on 8/5/15.
+ * Created by srishti
+ */
+
+/* This class generates the push notification
  */
 public class GenerateNotification {
 
     public static NotificationManager mManager;
 
+    /* Context is passed
+    * Notification Builder sets the notification constructor
+    * Pending intend is got and notification flags set
+    * Notification is updated with the latest event info
+    * notify() is called with the notification details
+    */
+
+    /**
+     * @param context
+     */
     @SuppressWarnings("static-access")
-    public static void generateNotification(Context context){
+    public static void generateNotification(Context context) {
         Calendar calendar = Calendar.getInstance();
         Log.i("App", "Hour : " + calendar.get(Calendar.HOUR_OF_DAY));
         Log.i("App", "Min : " + calendar.get(Calendar.MINUTE));
@@ -42,8 +55,8 @@ public class GenerateNotification {
                 .setWhen(System.currentTimeMillis());
 
         Notification notification = builder.build();
-        intent1.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP| Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingNotificationIntent = PendingIntent.getActivity(context,0, intent1,PendingIntent.FLAG_UPDATE_CURRENT);
+        intent1.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        PendingIntent pendingNotificationIntent = PendingIntent.getActivity(context, 0, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
         notification.flags |= Notification.FLAG_AUTO_CANCEL;
 
 

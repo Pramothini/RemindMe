@@ -6,25 +6,33 @@ import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
+/* This is a receiver
+ * On receving the context, it calls generateNotification()
+ */
+
 public class AlarmRing extends BroadcastReceiver {
 
 
+    /* On receving the context, it calls generateNotification()
+     * context is passed as an argument
+     */
+
+    /**
+     * @param arg0
+     * @param arg1
+     */
 
     @Override
     public void onReceive(Context arg0, Intent arg1) {
 
-
-        Toast.makeText(arg0, "Alarm received!", Toast.LENGTH_LONG).show();
-
-        try{
+        try {
             Log.e("App", "SRISHTI: Reached Alarm Ring class!");
 
             GenerateNotification.generateNotification(arg0);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
 
 
 }

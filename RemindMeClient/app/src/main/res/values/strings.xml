@@ -44,5 +44,6 @@
     <string name="title_activity_notifications__main_screen">Notifications_MainScreen</string>
     <string name="title_activity_alarm_ring">AlarmRing</string>
     <string name="title_activity_location">location</string>
+    <string name="SelectType">Select a Type of Notification</string>
 
 </resources>
