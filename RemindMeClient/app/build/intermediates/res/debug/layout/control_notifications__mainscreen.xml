@@ -23,4 +23,8 @@ android:orientation="vertical" >
 
 
 </LinearLayout>
+<<<<<<< Updated upstream:RemindMeClient/app/build/intermediates/res/debug/layout/control_notifications__mainscreen.xml
 <!-- From: file:/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/layout/control_notifications__mainscreen.xml -->
+=======
+<!-- From: file:/Users/pramothinidk/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/layout/activity_notifications__main_screen.xml -->
+>>>>>>> Stashed changes:RemindMeClient/app/build/intermediates/res/debug/layout/activity_notifications__main_screen.xml

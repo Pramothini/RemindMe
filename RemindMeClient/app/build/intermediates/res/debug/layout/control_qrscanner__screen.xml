@@ -41,4 +41,8 @@
         android:textSize="18dp" >
     </Button>
 
+<<<<<<< Updated upstream:RemindMeClient/app/build/intermediates/res/debug/layout/control_qrscanner__screen.xml
 </LinearLayout><!-- From: file:/Users/srish/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/layout/control_qrscanner__screen.xml -->
+=======
+</LinearLayout><!-- From: file:/Users/pramothinidk/AndroidStudioProjects/RemindMe/RemindMeClient/app/src/main/res/layout/activity_qrscanner__screen.xml -->
+>>>>>>> Stashed changes:RemindMeClient/app/build/intermediates/res/debug/layout/activity_qrscanner__screen.xml

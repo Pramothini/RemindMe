@@ -43,7 +43,7 @@ public class ExceptionManager {
     public Object fix(int errorno, String errmsg)
     {
         Fix1to5 f1 = new Fix1to5();
-        switch(this.getErrorno()){
+        switch(errorno){
             case 1:
                 return f1.fix1(errorno,errmsg);
 
@@ -60,6 +60,10 @@ public class ExceptionManager {
                 return f1.fix5(errorno,errmsg);
         }
         return 0;
+    }
+
+    public boolean validator(String msg){
+        return (msg == "" || msg.isEmpty());
     }
 
     public int getErrorno() {

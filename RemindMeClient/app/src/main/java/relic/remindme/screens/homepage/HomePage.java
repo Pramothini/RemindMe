@@ -24,8 +24,12 @@ import adapter.Deletable;
 import adapter.Manage;
 import adapter.Readable;
 import entities.List_entity;
+<<<<<<< Updated upstream:RemindMeClient/app/src/main/java/relic/remindme/screens/homepage/HomePage.java
 import relic.remindme.screens.screen2.ListItemActivity;
 import relic.remindme.R;
+=======
+import exceptions.FixExceptions;
+>>>>>>> Stashed changes:RemindMeClient/app/src/main/java/relic/remindme/HomePage.java
 
 /**
  * Populates the list details of all the lists that the user had created in the home page
@@ -39,6 +43,7 @@ public class HomePage extends ListActivity {
     Deletable del;
     Creatable create;
     Readable read;
+    FixExceptions fixError;
 
 
     @Override
@@ -47,11 +52,12 @@ public class HomePage extends ListActivity {
         setContentView(R.layout.control_homepage1);
        android_id = Secure.getString(this.getContentResolver(),
                 Secure.ANDROID_ID);
-        Toast toast = Toast.makeText(this, "my android id is" + android_id, Toast.LENGTH_LONG);
-        toast.show();
+//        Toast toast = Toast.makeText(this, "my android id is" + android_id, Toast.LENGTH_LONG);
+//        toast.show();
         del = new Manage(this);
         create = new Manage(this);
         read = new Manage(this);
+        fixError = new Manage(this);
 
         updateUI();
     }
@@ -84,12 +90,21 @@ public class HomePage extends ListActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String task = inputField.getText().toString();
+                        if(fixError.validator(task)) {
+                            Toast toast = Toast.makeText(inputField.getContext(), fixError.fix(1, "List name is empty").toString() , Toast.LENGTH_LONG);
+                            toast.show();
+                        }
+                        else {
+                            int id = create.createNewList(task, android_id);
+//                        Toast toast = Toast.makeText(inputField.getContext(), "created a new list and the list id is" + id, Toast.LENGTH_LONG);
+//                        toast.show();
+                            Intent intent = new Intent();
+                            intent.putExtra("ListName", task);
+                            intent.setClass(HomePage.this, ListItemActivity.class);
+                            startActivity(intent);
+                            updateUI();
+                        }
 
-                        int id = create.createNewList(task,android_id);
-                        Toast toast = Toast.makeText(inputField.getContext(), "created a new list and the list id is" + id, Toast.LENGTH_LONG);
-                        toast.show();
-
-                        updateUI();
                     }
                 });
 

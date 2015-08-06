@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import dBLayout.DatabaseConnector;
 import entities.ListItem;
 import entities.List_entity;
+import exceptions.ExceptionManager;
 
 
 /**
@@ -182,7 +183,7 @@ public class ListLab  {
      * @return - arraylist of list entity
      */
     public ArrayList<List_entity> createListEntities(Cursor c){
-        Log.e("ListLab","inside createListEntities .. start");
+        Log.e("ListLab", "inside createListEntities .. start");
         ArrayList<List_entity> arrlistentity = new ArrayList<List_entity>();
         if(c.moveToFirst()){
             do{
@@ -255,6 +256,15 @@ public class ListLab  {
 
     }
 
+    public boolean validator(String msg){
+        ExceptionManager em = new ExceptionManager();
+        return em.validator(msg);
+    }
+
+    public Object fix(int errorno, String errmsg){
+        ExceptionManager em = new ExceptionManager();
+        return em.fix(errorno,errmsg);
+    }
 
 }
 

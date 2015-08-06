@@ -11,14 +11,15 @@ import java.text.SimpleDateFormat;
  */
 public class Fix1to5 {
 
-	int fix1(int errno, String errmsg){
-//		Log.INFO("LOG: "+new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(new Date()) , "Error No: "+errno+" Error msg: "+errmsg +"Error Fix :"+" Adding a default value as 1212");
-		return 1212;
+	String fix1(int errno, String errmsg){
+		Log.e("LOG: "+new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(new Date()) ,
+                "Error No: "+errno+" Error msg: "+errmsg +"Error Fix :"+" Toast msg asking the user to enter a non empty value");
+		return "Cannot create a new list without a name. Please provide a name for your list";
 	}
 
 	String fix2(int errno, String errmsg){
-//		Log.INFO("LOG: " + new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(new Date()) + " Error No: " + errno + " Error msg: " + errmsg + "Error Fix :" + " Adding a default value as OptionSet3.txt");
-		return "OptionSet3.txt";
+        Log.e("LOG: " + new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(new Date()), "Error No: " + errno + " Error msg: " + errmsg + "Error Fix :" + " Toast msg asking the user to enter a non empty value");
+        return "Cannot create list item without a name. Please provide a name for your list item";
 	}
 
 	String fix3(int errno, String errmsg){
